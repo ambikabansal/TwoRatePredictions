@@ -5,7 +5,7 @@
 
 getParticipantData <- function(participant = 1) {
   
-  filename <- sprintf("TwoRate_p%03d.csv", participant)
+  filename <- sprintf("data/Pilot/TwoRate_p%03d.csv", participant)
   #print(filename)
   df <- read.csv(filename)
   part1 <- getTrialReachDeviations(df[df$blockno %in% c(2:5), ])
@@ -293,7 +293,7 @@ getReachDeviations <- function(participants = c(1,2,3)) {
     
     # outlier removal?
     
-    write.csv(df, file = sprintf ('%s.csv',conditionname), quote = FALSE, row.names = FALSE)
+    write.csv(df, file = sprintf ('data/Pilot/%s.csv',conditionname), quote = FALSE, row.names = FALSE)
     
   }
   

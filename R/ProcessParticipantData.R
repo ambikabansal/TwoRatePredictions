@@ -8,6 +8,7 @@ getParticipantData <- function(participant = 1) {
   filename <- sprintf("data/Pilot/TwoRate_p%03d.csv", participant)
   #print(filename)
   df <- read.csv(filename)
+  feedback <- c()
   part1 <- getTrialReachDeviations(df[df$blockno %in% c(2:5), ])
   part2 <- getTrialReachDeviations(df[df$blockno %in% c(6:9), ])
   part1$block <- part1$block - (min(part1$block) - 1)
@@ -248,7 +249,7 @@ getTrialReachAngleAt <- function(trialdf, location='per') {
 }
 
 
-getReachDeviations <- function(participants = c(1,2,3)) {
+getReachDeviations <- function(participants = c(1:35)) {
   
   # this function is going to save 1 data frame per condition
   
@@ -298,3 +299,24 @@ getReachDeviations <- function(participants = c(1,2,3)) {
   }
   
 }
+
+
+#loading data from all 4 conditions 
+
+loadAllData <- function(){
+  
+  allData <- list()
+  
+  for (duration in c(4,12)) {
+    for (magnitude in c(0,30)){
+      
+      conditionname <- sprintf("%dtrial-%ddeg",duration, magnitude)
+      
+      allData [[conditionname]] <- read.csv(file = sprintf ('data/Pilot/%s.csv', conditionname), stringsAsFactors = FALSE)
+    }
+  }
+
+  return(allData) 
+}
+
+

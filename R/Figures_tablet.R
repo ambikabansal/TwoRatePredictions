@@ -1,6 +1,5 @@
-source("R/ProcessParticipantData.R")
-source("R/twoRates.R")
-
+source("R/ProcessTabletData.R")
+source("R/twoRates_tablet.R")
 
 #plotting perturbation schedule
 
@@ -41,6 +40,41 @@ plotRotationSchedule <- function(reversaltrials = 12, reversalmagnitude = -30, e
 }
 
 
+plotGradualSchedule <- function(reversaltrials = 12, reversalmagnitude = -30, errorclampmagnitude = 0) {
+  
+  alignedtrials <- 32
+  rotatedtrials <- 100
+  rotatedmagnitude <- 30
+  errorclamptrials <- 20
+  
+  #setting (x,y) points 
+  
+  x <- c(1,
+         alignedtrials +1, 
+         alignedtrials +1 +40,
+         alignedtrials + rotatedtrials +1,
+         alignedtrials + rotatedtrials +1,
+         alignedtrials + rotatedtrials + reversaltrials+ 1,
+         alignedtrials + rotatedtrials + reversaltrials+ 1,
+         alignedtrials + rotatedtrials + reversaltrials + errorclamptrials)
+  
+  y <- c(0,
+         0,
+         rotatedmagnitude,
+         rotatedmagnitude,
+         reversalmagnitude,
+         reversalmagnitude,
+         errorclampmagnitude,
+         errorclampmagnitude)
+  
+  #creating plots
+  
+  lines(x,y,col='black')
+  axis(1,c(1,32,132,144,164),las=2)
+  axis(2,c(-30,-15,0,15,30))
+}
+
+
 
 #plotting behavioural data
 
@@ -48,26 +82,30 @@ library(svglite)
 
 plotAllData <- function() {
   
-  svglite(file='CVRSS_fig.svg', width=7, height=4, system_fonts=list(sans = "Arial"))
+  svglite(file='tablet_figures.svg', width=7, height=4, system_fonts=list(sans = "Arial"))
   
   allData <- loadAllData()
   
-  par(mar=c(4,4,2,1), mfrow=c(2,2), las = 1)
+  par(mar=c(4,4,2,1), mfrow=c(1,2), las = 1)
   
-  for (magnitude in c(0,-30)){
-    for (duration in c(4,12)) {
-      
-      conditionname <- sprintf("%dtrial-%ddeg",duration, abs(magnitude))
+  for (perturbation in c('abrupt','gradual')){
+    
+      conditionname <- sprintf("%s",perturbation)
       
       df <- allData [[conditionname]]
-      
+
 #creating plots
       
-      plot(-1000,-1000, main = "fig", xlim = c(0,165), ylim = c(-30,35), xlab = "Trial", ylab = "Angular Deviation",bty='n', ax=FALSE)
-      plotRotationSchedule(reversaltrials = duration, reversalmagnitude = magnitude)
+      plot(-1000,-1000, main = "data", xlim = c(0,165), ylim = c(-40,40), xlab = "", ylab = "",bty='n', ax = FALSE)
+      
+      if (perturbation == 'abrupt') {
+        plotRotationSchedule()
+        } else { plotGradualSchedule()
+        }
+      
       plotReachDeviations(df)
       
-  #plotting two-rate model
+      #plotting two-rate model
       reaches <- getMedianReachDeviations(df)
       par <- twoRateModelFit(schedule = df$rotation, reaches = reaches)  
       twoRate <- twoRateModel(par = par, schedule = df$rotation)
@@ -75,14 +113,13 @@ plotAllData <- function() {
       lines(twoRate$fast,col='#0087FF')
       lines(twoRate$total,col='#e51636ff')
       
+      
       #plot(-1000,-1000, main = "model", bty = 'n')
       #plotRotationSchedule(reversaltrials = duration, reversalmagnitude = magnitude)
+      
     }
-  }
-  
-  dev.off()
-  
 }
+
 
 plotReachDeviations <- function(df) {
   
@@ -91,10 +128,11 @@ plotReachDeviations <- function(df) {
   medianReachDeviations <- getMedianReachDeviations(df)
   lines(medianReachDeviations, col='#8266f4ff')
   
+  
   #plotting mean reach deviations
   
-  #meanReachDeviations <- getMeanReachDeviations(df)
-  #lines(meanReachDeviations)
+  # meanReachDeviations <- getMeanReachDeviations(df)
+  # lines(meanReachDeviations)
   
   
   #plotting individual reach deviations

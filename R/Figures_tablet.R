@@ -80,9 +80,12 @@ plotGradualSchedule <- function(reversaltrials = 12, reversalmagnitude = -30, er
 
 library(svglite)
 
-plotAllData <- function() {
+plotAllData <- function(group, target='inline') {
   
-  svglite(file='tablet_figures.svg', width=7, height=4, system_fonts=list(sans = "Arial"))
+  if (target == 'svg') {
+    svgfile <- sprintf('data/allReaches_%s.svg',group)
+    svglite(file=svgfile, width=7, height=4, system_fonts=list(sans = "Arial"))
+  }
   
   allData <- loadAllData()
   
@@ -96,7 +99,7 @@ plotAllData <- function() {
 
 #creating plots
       
-      plot(-1000,-1000, main = "data", xlim = c(0,165), ylim = c(-40,40), xlab = "", ylab = "",bty='n', ax = FALSE)
+      plot(-1000,-1000, main = "data", xlim = c(0,165), ylim = c(-80,80), xlab = "", ylab = "",bty='n', ax = FALSE)
       
       if (perturbation == 'abrupt') {
         plotRotationSchedule()
@@ -105,10 +108,11 @@ plotAllData <- function() {
       
       plotReachDeviations(df)
       
-      #plotting two-rate model
+#plotting two-rate model
+      
       reaches <- getMedianReachDeviations(df)
-      par <- twoRateModelFit(schedule = df$rotation, reaches = reaches)  
-      twoRate <- twoRateModel(par = par, schedule = df$rotation)
+      par <- twoRateModelFit(schedule = df$rotation*-1, reaches = reaches)
+      twoRate <- twoRateModel(par = par, schedule = df$rotation*-1)
       lines(twoRate$slow,col='#ff8200ff')
       lines(twoRate$fast,col='#0087FF')
       lines(twoRate$total,col='#e51636ff')
@@ -117,7 +121,12 @@ plotAllData <- function() {
       #plot(-1000,-1000, main = "model", bty = 'n')
       #plotRotationSchedule(reversaltrials = duration, reversalmagnitude = magnitude)
       
-    }
+  }
+  
+  if (target %in% c('svg')) {
+    dev.off()
+  }
+  
 }
 
 
@@ -125,8 +134,8 @@ plotReachDeviations <- function(df) {
   
   #plotting median reach deviations
   
-  medianReachDeviations <- getMedianReachDeviations(df)
-  lines(medianReachDeviations, col='#8266f4ff')
+    medianReachDeviations <- getMedianReachDeviations(df)
+    lines(medianReachDeviations, col='#8266f4ff')
   
   
   #plotting mean reach deviations
@@ -136,22 +145,26 @@ plotReachDeviations <- function(df) {
   
   
   #plotting individual reach deviations
+
+  # df[1:3] <- NULL
+  # 
+  # for (participant in df) {
+  #   print(participant)
+  #   lines(participant, col='#ff82002f')
+  #}
   
   
   
   #plotting 95% confidence intervals
   
   reachCI <- getReachCI(df)
-  
+
   x <- c(1:nrow(df),rev(1:nrow(df)))
   y <- c(reachCI$hi,rev(reachCI$lo))
-  
+
   polygon(x,y, col = "#ff00ff22", border=NA)
+  
 }
-
-
-
-
 
 
 #getting reach median deviations

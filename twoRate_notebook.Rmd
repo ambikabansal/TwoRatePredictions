@@ -1,0 +1,72 @@
+---
+title: "Abrupt versus Gradual Motor Learning"
+output:
+  pdf_document: default
+  html_notebook: default
+---
+
+
+```{r}
+plot(cars)
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file). 
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+
+# Load Packages
+
+```{r loadpackages}
+library(dplyr)
+library(svglite)
+library(optimx)
+library(ez)
+```
+
+
+# Load R scripts
+
+```{r loadsources}
+source('ProcessTabletData.R')
+source('Figures_tablet.R') #
+source('twoRates_tablet.R')
+```
+
+
+# Overview
+
+This document discusses the figures and statistics used to investigate abrupt versus gradual motor learning. The main sections here will be looking at the Rebound and the Two-Rate Model. 
+
+
+# Converting angular reach deviation to a percentage of adaptation
+
+
+# Order Effects of Within-Subjects Design
+
+This was done only on data from the abrupt condition, with groups (30° digitizing tablet, 60° digitalizing tablet, 30° VR setups) and order as our between-subject factors. 
+
+## 3 x2 ANOVA on First Block of Training
+## 3 x2 ANOVA on Second Block of Training
+## 3 x2 ANOVA on Final Block of Training
+
+
+# Extent of Learning
+# Performance on Last Block of Reversal 
+
+We opted to split these groups into pairs for two 2 x 2 ANOVAs with first consisting of the Groups 30° and 60° digitizing tablet in order to test the effect of rotation magnitude, and the other ANOVA consisting of the Groups 30° digitizing tablet and 30° VR to test for experimental setup. This makes a total of four 2 x 2 ANOVAs for each of the dependent variables. 
+
+
+# Rebound
+
+Like for the extent of training and reversal performance, we will run two separate 2 x 2 ANOVAs for groups with the same setup but different rotations, and the two groups with the same rotation but different experimental setups across abrupt and gradual conditions.
+
+
+# Two-Rate Model
+
+## Polynomial Logistic Regression
+
+
+# Plot Data
+

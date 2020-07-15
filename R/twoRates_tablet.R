@@ -50,7 +50,7 @@ twoRateModel <- function(par, schedule) {
   modeloutput <- data.frame(slow, fast, total)
   
   return(modeloutput)
-  
+
 }
 
 
@@ -128,13 +128,13 @@ twoRateModelFit <- function(schedule, reaches) {
   winParameters <- win[1:4]
   
   return(winParameters)
-  
+
 }
 
 
 #getting rebound:
   
-getReboundsForANOVA <- function() {
+getReboundsForANOVA <- function(group) {
   
   participant <- c()
   condition <- c()
@@ -147,11 +147,11 @@ getReboundsForANOVA <- function() {
   for (perturbation in c('abrupt','gradual')) {
       print(perturbation)
       #open the file for these conditions:
-      filename <- sprintf('data/Tablet_data/%s.csv',perturbation)
+      filename <- sprintf('data/processedData/%s_%s.csv',perturbation, group)
       print(filename)
       #print(getwd())
       df <- read.csv(filename, stringsAsFactors = FALSE)
-      schedule <- df$rotation
+      schedule <- df$rotation*-1
       participants <- names(df)[4:dim(df)[2]]
       
       # loop through participants:
@@ -163,7 +163,7 @@ getReboundsForANOVA <- function() {
         par <- twoRateModelFit(schedule,reaches)
 
         
-        thisrebound <- getRebound(par,schedule)
+        thisrebound <- getRebound(reaches,schedule)
         participant <- c(participant, p.ID)
         condition <- c(condition, perturbation)
         Rs <- c(Rs, par$Rs)
@@ -175,52 +175,56 @@ getReboundsForANOVA <- function() {
       }
     }
   
-  print(participant)
-  print(condition)
-  print(Rs)
-  print(Ls)
-  print(Rf)
-  print(Lf)
-  print(rebound)
+  # print(participant)
+  # print(condition)
+  # print(Rs)
+  # print(Ls)
+  # print(Rf)
+  # print(Lf)
+  # print(rebound)
 
   df <- data.frame(participant, condition, Rs, Ls, Rf, Lf, rebound)
-  write.csv(df, file = 'data/Tablet_data/rebound.csv')
+  write.csv(df, file = sprintf('data/processedData/rebound_%s.csv', group))
   
 }
 
 
-getRebound <- function(par,schedule) {
+getRebound <- function(reaches,schedule) {
   
-  model <- twoRateModel(par, schedule)
   
-  reversalstart <- 137
-  errorclampstart <- reversalstart + 12
+  #reversalstart <- 137
+  #errorclampstart <- reversalstart + 12
   
-  rebound <- max(model$total[errorclampstart:length(schedule)]) - min(model$total[reversalstart:length(schedule)])
+  #rebound <- mean(model$total[errorclampstart:length(schedule)]) - min(model$total[reversalstart:length(schedule)])
   
+  reversals <- reaches[137:148]
+  reversals <- reversals[!is.na(reversals)]
+  rebound <- mean(reaches[(length(schedule)-9):length(schedule)], na.rm=TRUE) - reversals[length(reversals)]
+    
   return(rebound)
   
 }
 
-#ANOVA
+#ANOVA 
 
-library(ez)
-getANOVA <- function() {
-  
-  reboundData <- read.csv(file = sprintf ('data/Tablet_data/rebound.csv'), stringsAsFactors = FALSE)
-  reboundData$participant <- as.factor(reboundData$participant)
-  reboundData$condition <- as.factor(reboundData$condition)
-  anova <- ezANOVA(data = reboundData, dv = rebound, wid = participant, between = c(condition), type=3)
-  print(anova)
-  
-}
+# library(ez)
+# getANOVA <- function(group) {
+#   
+#   reboundData <- read.csv(file = sprintf ('data/%s/rebound.csv', group), stringsAsFactors = FALSE)
+#   reboundData$participant <- as.factor(reboundData$participant)
+#   reboundData$condition <- as.factor(reboundData$condition)
+#   anova <- ezANOVA(data = reboundData, dv = rebound, wid = participant, between = c(condition), type=3)
+#   print(anova)
+#   
+# }
+
 
 
 #polynomial logistic regression
 
-pLogRegression <- function() {
+pLogRegression <- function(group) {
   
-  df <- read.csv('data/Tablet_data/rebound.csv', stringsAsFactors = F)
+  df <- read.csv('data/Tablet_data/60-deg_rawprocessing/rebound.csv', stringsAsFactors = F)
   
   df$condition <- as.factor(df$condition)
   
@@ -231,5 +235,31 @@ pLogRegression <- function() {
 }
 
 
+#polynomial logistic regression between 30 and 60 degree rotation
 
+pLogRegressionMag <- function() {
+  
+  df <- read.csv('data/30_60_gradual.csv', stringsAsFactors = F)
+  
+  df$condition <- as.factor(df$condition)
+  
+  print(summary(glm(formula = condition ~ Rs + Ls + Rf + Lf, family = binomial(link = "logit"), 
+                    data = df)))
+  
+  
+}
+
+
+#Tablet vs. VR ANOVA
+
+library(ez)
+getSetupANOVA <- function() {
+  
+  reboundData <- read.csv(file = sprintf ('data/tablet_VR_ANOVA.csv'), stringsAsFactors = FALSE)
+  reboundData$participant <- as.factor(reboundData$participant)
+  reboundData$condition <- as.factor(reboundData$condition)
+  anova <- ezANOVA(data = reboundData, dv = rebound, wid = participant, between = c(condition), type=3)
+  print(anova)
+  
+}
 

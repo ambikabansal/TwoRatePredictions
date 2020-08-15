@@ -19,9 +19,14 @@ gradual <- df %>% filter(df$task_name == 1)
 
 abrupt <- fixTrialsNtime(abrupt)
 gradual <- fixTrialsNtime(gradual)
+abrupt$trial_num <- abrupt$cumulative_trial_no
+gradual$trial_num <- gradual$cumulative_trial_no
 
-write.table(abrupt, file = sprintf ('data/Tablet_Data/60-deg_selection/p%02d_abrupt.txt', participant), sep = "\t", row.names=FALSE, col.names = FALSE, quote=FALSE)
-write.table(gradual, file = sprintf ('data/Tablet_Data/60-deg_selection/p%02d_gradual.txt', participant), sep = "\t", row.names=FALSE, col.names = FALSE, quote=FALSE)
+#write.table(abrupt, file = sprintf ('data/Tablet_Data/60-deg_selection/p%02d_abrupt.txt', participant), sep = "\t", row.names=FALSE, col.names = FALSE, quote=FALSE)
+#write.table(gradual, file = sprintf ('data/Tablet_Data/60-deg_selection/p%02d_gradual.txt', participant), sep = "\t", row.names=FALSE, col.names = FALSE, quote=FALSE)
+
+write.csv(abrupt, file = sprintf ('data/Tablet_Data/60-deg_selection/p%02d_abrupt.csv', participant), row.names=FALSE, quote=FALSE)
+write.csv(gradual, file = sprintf ('data/Tablet_Data/60-deg_selection/p%02d_gradual.csv', participant), row.names=FALSE, quote=FALSE)
 
 }
 
@@ -70,7 +75,7 @@ fixTrialsNtime <- function(df) {
 }
 
 
-getAllData <- function(participants=c(15:32)) {
+getAllData <- function(participants=c(1:32)) {
   
   for (participant in participants) {
     getData(participant)

@@ -19,7 +19,6 @@ The preview shows you a rendered HTML copy of the contents of the editor. Conseq
 # Load Packages
 
 ```{r loadpackages}
-library(dplyr)
 library(svglite)
 library(optimx)
 library(ez)
@@ -29,44 +28,101 @@ library(ez)
 # Load R scripts
 
 ```{r loadsources}
-source('ProcessTabletData.R')
-source('Figures_tablet.R') #
-source('twoRates_tablet.R')
+source('orderEffects.R') # this file deals with the order effects and runs the ANOVA
+source('ExtentofLearning.R') # this file deals with the extent of learning and runs the ANOVA
+source('Analysis.R') # this file has the rebound ANOVA
+source('Figures.R') # this file creates the 4 figures
+
 ```
 
 
 # Overview
 
-This document discusses the figures and statistics used to investigate abrupt versus gradual motor learning. The main sections here will be looking at the Rebound and the Two-Rate Model. 
+This document discusses the figures and statistics used to investigate abrupt versus gradual motor learning. The main sections here will be looking at the Order Effects, the Extent of Learning, and the Rebound.
 
 
-# Converting angular reach deviation to a percentage of adaptation
+# Plotting All of the Behavioural Data
+
+```{r}
+plotAllData()
+```
 
 
 # Order Effects of Within-Subjects Design
 
-This was done only on data from the abrupt condition, with groups (30° digitizing tablet, 60° digitalizing tablet, 30° VR setups) and order as our between-subject factors. 
+This was done only on data from the abrupt condition, with groups (30° digitizing tablet, 60° digitalizing tablet, 30° VR setups) with the blocks (first, second, last training) as our within-subject factors, and order as our between-subject factors. The orange bars here represent the mean reach deviations of the participants who performed the abrupt condition first, and the blue bars represent the mean reach deviations of the participants who performed the gradual condition first. All of the data has been normalized to the size of the rotation.  
 
-## 3 x2 ANOVA on First Block of Training
-## 3 x2 ANOVA on Second Block of Training
-## 3 x2 ANOVA on Final Block of Training
+```{r}
+plotOrderData()
+```
+
+
+Here is the ANOVA for each of the tablet30 group, which showed no effect of order. 
+```{r}
+orderANOVA(group = 'tablet30')
+```
+
+Here is the ANOVA for each of the tablet60 group, which showed no effect of order. 
+```{r}
+orderANOVA(group = 'tablet60')
+```
+
+Here is the ANOVA for each of the VR30 group, which showed no effect of order. 
+```{r}
+orderANOVA(group = 'VR30')
+
+```
 
 
 # Extent of Learning
-# Performance on Last Block of Reversal 
 
-We opted to split these groups into pairs for two 2 x 2 ANOVAs with first consisting of the Groups 30° and 60° digitizing tablet in order to test the effect of rotation magnitude, and the other ANOVA consisting of the Groups 30° digitizing tablet and 30° VR to test for experimental setup. This makes a total of four 2 x 2 ANOVAs for each of the dependent variables. 
+Here we are checking if there are any differences in the extent of learning in the abrupt and gradual conditions during the last training and last reversal blocks. The data is shown for the 3 groups (30° digitizing tablet, 60° digitalizing tablet, 30° VR setups). The orange bars here represent the mean reach deviations of the abrupt condition, and the blue bars represent the mean reach deviations of gradual condition. All of the data has been normalized to the size of the rotation. 
+
+
+```{r}
+plotExtentofLearning()
+```
+
+Here is the ANOVA for each of the tablet30 group, which showed that there were no significant differences in the abrupt and gradual conditions. 
+```{r}
+ExtentOfLearningANOVA(group = 'tablet30')
+```
+
+Here is the ANOVA for each of the tablet60 group, which showed that there were no significant differences in the abrupt and gradual conditions. 
+```{r}
+ExtentOfLearningANOVA(group = 'tablet60')
+```
+
+Here is the ANOVA for each of the VR30 group, which showed that there were no significant differences in the abrupt and gradual conditions. 
+```{r}
+ExtentOfLearningANOVA(group = 'VR30')
+
+```
+
 
 
 # Rebound
 
-Like for the extent of training and reversal performance, we will run two separate 2 x 2 ANOVAs for groups with the same setup but different rotations, and the two groups with the same rotation but different experimental setups across abrupt and gradual conditions.
+Here we are checking if there are any differences in the rebound between the abrupt and gradual conditions for the 3 groups (30° digitizing tablet, 60° digitalizing tablet, 30° VR setups). The orange bars here represent the mean reach deviations of the abrupt condition, and the blue bars represent the mean reach deviations of gradual condition. All of the data has been normalized to the size of the rotation. 
+
+```{r}
+plotReboundData()
+```
+
+Here is the ANOVA for each of the tablet30 group, which showed that there were no significant differences in the abrupt and gradual conditions. 
+```{r}
+getReboundANOVA(group = 'tablet30')
+```
+
+Here is the ANOVA for each of the tablet30 group, which showed that there were no significant differences in the abrupt and gradual conditions. 
+```{r}
+getReboundANOVA(group = 'tablet60')
+```
+
+Here is the ANOVA for each of the tablet30 group, which showed that there were no significant differences in the abrupt and gradual conditions. 
+```{r}
+getReboundANOVA(group = 'VR30')
+```
 
 
-# Two-Rate Model
-
-## Polynomial Logistic Regression
-
-
-# Plot Data
 

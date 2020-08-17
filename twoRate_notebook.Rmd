@@ -1,6 +1,7 @@
 ---
 title: "Abrupt versus Gradual Motor Learning"
 output:
+  word_document: default
   pdf_document: default
   html_notebook: default
 ---
@@ -22,6 +23,7 @@ The preview shows you a rendered HTML copy of the contents of the editor. Conseq
 library(svglite)
 library(optimx)
 library(ez)
+library(ggplot2)
 ```
 
 
@@ -30,7 +32,6 @@ library(ez)
 ```{r loadsources}
 source('orderEffects.R') # this file deals with the order effects and runs the ANOVA
 source('ExtentofLearning.R') # this file deals with the extent of learning and runs the ANOVA
-source('Analysis.R') # this file has the rebound ANOVA
 source('Figures.R') # this file creates the 4 figures
 
 ```
@@ -85,18 +86,7 @@ plotExtentofLearning()
 
 Here is the ANOVA for each of the tablet30 group, which showed that there were no significant differences in the abrupt and gradual conditions. 
 ```{r}
-ExtentOfLearningANOVA(group = 'tablet30')
-```
-
-Here is the ANOVA for each of the tablet60 group, which showed that there were no significant differences in the abrupt and gradual conditions. 
-```{r}
-ExtentOfLearningANOVA(group = 'tablet60')
-```
-
-Here is the ANOVA for each of the VR30 group, which showed that there were no significant differences in the abrupt and gradual conditions. 
-```{r}
-ExtentOfLearningANOVA(group = 'VR30')
-
+ExtentOfLearningANOVA()
 ```
 
 
@@ -111,18 +101,9 @@ plotReboundData()
 
 Here is the ANOVA for each of the tablet30 group, which showed that there were no significant differences in the abrupt and gradual conditions. 
 ```{r}
-getReboundANOVA(group = 'tablet30')
+setupReboundANOVA()
 ```
 
-Here is the ANOVA for each of the tablet30 group, which showed that there were no significant differences in the abrupt and gradual conditions. 
-```{r}
-getReboundANOVA(group = 'tablet60')
-```
-
-Here is the ANOVA for each of the tablet30 group, which showed that there were no significant differences in the abrupt and gradual conditions. 
-```{r}
-getReboundANOVA(group = 'VR30')
-```
 
 
 

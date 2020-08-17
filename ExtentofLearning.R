@@ -14,7 +14,6 @@ getExtentofLearning <- function(group) {
     df <- read.csv(sprintf('data/processedData/%s_%s_new.csv', group, perturbation, stringsAsFactors = FALSE))
     #cat(sprintf(' %s\n', perturbation))
 
-    # participants <- sapply(names(df)[3:dim(df)[2]], function(name) as.numeric(substr(name, nchar(name)-1, nchar(name))))
     participants <- names(df)[3:dim(df)[2]]
     
     #print(participants)
@@ -22,7 +21,6 @@ getExtentofLearning <- function(group) {
 
     # loop through participants:
     for (p.ID in participants) {
-      #ppname <- sprintf('%s_p%02d', group, p.ID)
       reachdevs <- df[,p.ID]
       #cat(sprintf('   %s %s\n', perturbation, p.ID))   
       
@@ -39,31 +37,69 @@ getExtentofLearning <- function(group) {
          condition <- c(condition, perturbation)
          reachdeviation <- c(reachdeviation, meanreachdev)
          
-         # cat(sprintf('      %s %s %s: %0.2f\n', perturbation, p.ID,
-         #             blockname, meanreachdev))
-         # cat(sprintf('      (vector lengths: %d, %d, %d, %d)\n',
-         #             length(participant), length(block), length(condition),
-         #             length(reachdeviation)))
-
       }
     }
   }
   
   # create data frame
   df <- data.frame(participant, block, condition, reachdeviation)
-  # print(df)
+  #print(df)
   return(df)
 }
 
 
-ExtentOfLearningANOVA <- function(group) {
+# ExtentOfLearningANOVA <- function(group) {
+#   
+#   df <- getExtentofLearning(group=group)
+#   
+#   df$participant <- as.factor(df$participant)
+#   df$block <- as.factor(df$block)
+#   df$condition <- as.factor(df$condition)
+#   
+#   print(ezANOVA(data=df, dv=reachdeviation, wid=participant, within= c(block, condition))  )
+#   
+# }
+
+
+ExtentOfLearningANOVA <- function() {
   
-  df <- getExtentofLearning(group=group)
+  df_tablet30 <- getExtentofLearning(group='tablet30')
+  df_VR30 <- getExtentofLearning(group='VR30')
+  
+  df_tablet30$setup <- 'tablet'
+  df_VR30$setup <- 'VR'
+  df <- rbind(df_tablet30, df_VR30)
+  
+  #return(df)
   
   df$participant <- as.factor(df$participant)
-  df$block <- as.factor(df$block)
+  df$setup <- as.factor(df$setup)
   df$condition <- as.factor(df$condition)
+  df$block <- as.factor(df$block)
   
-  print(ezANOVA(data=df, dv=reachdeviation, wid=participant, within= c(block, condition))  )
+  print(ezANOVA(data=df, dv=reachdeviation, wid=participant, within= c(condition, block), between = setup)  )
+  
+}
+
+
+
+setupReboundANOVA <- function() {
+  
+  df_tablet30 <- read.csv(sprintf('data/processedData/tablet30_tworates_new.csv', stringsAsFactors = FALSE))
+  df_tablet60 <- read.csv(sprintf('data/processedData/tablet60_tworates_new.csv', stringsAsFactors = FALSE))
+  #df_VR30 <- read.csv(sprintf('data/processedData/VR30_tworates_new.csv', stringsAsFactors = FALSE))
+  
+  df_tablet30$setup <- 'tablet30'
+  df_tablet60$setup <- 'tablet60'
+  #df_VR30$setup <- 'VR'
+  df <- rbind(df_tablet30, df_tablet60)
+  
+  #return(df)
+  
+  df$participant <- as.factor(df$participant)
+  df$setup <- as.factor(df$setup)
+  df$condition <- as.factor(df$condition)
+
+  print(ezANOVA(data=df, dv=rebound, wid=participant, within= condition, between = setup)  )
   
 }

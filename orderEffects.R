@@ -27,7 +27,7 @@ orderData <- function(group) {
     for (blockname in names(blocktrials)) {
       
       meanreachdev <- mean(reachdevs[blocktrials[[blockname]]], na.rm=TRUE)
-      
+
       participant <- c(participant, ppno)
       block <- c(block, blockname)
       order <- c(order, pporder)
@@ -39,7 +39,6 @@ orderData <- function(group) {
   }
   
   df <- data.frame(participant, block, order, reachdeviation)
-  
   return(df)
   
 }

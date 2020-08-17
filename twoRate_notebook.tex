@@ -145,39 +145,295 @@ editor. Consequently, unlike \emph{Knit}, \emph{Preview} does not run
 any R code chunks. Instead, the output of the chunk when it was last run
 in the editor is displayed.
 
+\section{Load Packages}\label{load-packages}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(svglite)}
+\KeywordTok{library}\NormalTok{(optimx)}
+\KeywordTok{library}\NormalTok{(ez)}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Load R scripts}\label{load-r-scripts}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{source}\NormalTok{(}\StringTok{'orderEffects.R'}\NormalTok{) }\CommentTok{# this file deals with the order effects and runs the ANOVA}
+\KeywordTok{source}\NormalTok{(}\StringTok{'ExtentofLearning.R'}\NormalTok{) }\CommentTok{# this file deals with the extent of learning and runs the ANOVA}
+\KeywordTok{source}\NormalTok{(}\StringTok{'Analysis.R'}\NormalTok{) }\CommentTok{# this file has the rebound ANOVA}
+\KeywordTok{source}\NormalTok{(}\StringTok{'Figures.R'}\NormalTok{) }\CommentTok{# this file creates the 4 figures}
+\end{Highlighting}
+\end{Shaded}
+
 \section{Overview}\label{overview}
 
 This document discusses the figures and statistics used to investigate
 abrupt versus gradual motor learning. The main sections here will be
-looking at the Rebound and the Two-Rate Model.
+looking at the Order Effects, the Extent of Learning, and the Rebound.
 
-\section{Converting angular reach deviation to a percentage of
-adaptation}\label{converting-angular-reach-deviation-to-a-percentage-of-adaptation}
+\section{Plotting All of the Behavioural
+Data}\label{plotting-all-of-the-behavioural-data}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{plotAllData}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{twoRate_notebook_files/figure-latex/unnamed-chunk-2-1.pdf}
 
 \section{Order Effects of Within-Subjects
 Design}\label{order-effects-of-within-subjects-design}
 
 This was done only on data from the abrupt condition, with groups (30°
-digitizing tablet, 60° digitalizing tablet, 30° VR setups) and order as
-our between-subject factors.
+digitizing tablet, 60° digitalizing tablet, 30° VR setups) with the
+blocks (first, second, last training) as our within-subject factors, and
+order as our between-subject factors. The orange bars here represent the
+mean reach deviations of the participants who performed the abrupt
+condition first, and the blue bars represent the mean reach deviations
+of the participants who performed the gradual condition first. All of
+the data has been normalized to the size of the rotation.
 
-\subsection{3 x2 ANOVA on First Block of
-Training}\label{x2-anova-on-first-block-of-training}
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{plotOrderData}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
 
-\subsection{3 x2 ANOVA on Second Block of
-Training}\label{x2-anova-on-second-block-of-training}
+\includegraphics{twoRate_notebook_files/figure-latex/unnamed-chunk-3-1.pdf}
 
-\subsection{3 x2 ANOVA on Final Block of
-Training}\label{x2-anova-on-final-block-of-training}
+Here is the ANOVA for each of the tablet30 group, which showed no effect
+of order.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{orderANOVA}\NormalTok{(}\DataTypeTok{group =} \StringTok{'tablet30'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $ANOVA
+##        Effect DFn DFd          F            p p<.05        ges
+## 2       order   1  28   0.723500 4.022137e-01       0.01547996
+## 3       block   2  56 107.157288 7.193161e-20     * 0.59972241
+## 4 order:block   2  56   1.105181 3.382646e-01       0.01521742
+## 
+## $`Mauchly's Test for Sphericity`
+##        Effect         W         p p<.05
+## 3       block 0.9488241 0.4920474      
+## 4 order:block 0.9488241 0.4920474      
+## 
+## $`Sphericity Corrections`
+##        Effect       GGe        p[GG] p[GG]<.05      HFe        p[HF]
+## 3       block 0.9513156 5.137529e-19         * 1.018806 7.193161e-20
+## 4 order:block 0.9513156 3.362093e-01           1.018806 3.382646e-01
+##   p[HF]<.05
+## 3         *
+## 4
+\end{verbatim}
+
+Here is the ANOVA for each of the tablet60 group, which showed no effect
+of order.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{orderANOVA}\NormalTok{(}\DataTypeTok{group =} \StringTok{'tablet60'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $ANOVA
+##        Effect DFn DFd            F            p p<.05          ges
+## 2       order   1  26  0.009481915 9.231753e-01       0.0002318619
+## 3       block   2  52 88.074921744 2.006145e-17     * 0.5522311586
+## 4 order:block   2  52  0.528464898 5.926413e-01       0.0073456288
+## 
+## $`Mauchly's Test for Sphericity`
+##        Effect         W         p p<.05
+## 3       block 0.8972168 0.2577612      
+## 4 order:block 0.8972168 0.2577612      
+## 
+## $`Sphericity Corrections`
+##        Effect       GGe        p[GG] p[GG]<.05       HFe        p[HF]
+## 3       block 0.9067965 5.167944e-16         * 0.9709382 5.522909e-17
+## 4 order:block 0.9067965 5.755789e-01           0.9709382 5.874898e-01
+##   p[HF]<.05
+## 3         *
+## 4
+\end{verbatim}
+
+Here is the ANOVA for each of the VR30 group, which showed no effect of
+order.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{orderANOVA}\NormalTok{(}\DataTypeTok{group =} \StringTok{'VR30'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: Data is unbalanced (unequal N per group). Make sure you specified
+## a well-considered value for the type argument to ezANOVA().
+\end{verbatim}
+
+\begin{verbatim}
+## $ANOVA
+##        Effect DFn DFd           F            p p<.05          ges
+## 2       order   1  17 0.001798478 0.9666671996       6.138754e-05
+## 3       block   2  34 9.774540542 0.0004429525     * 1.944044e-01
+## 4 order:block   2  34 0.028268511 0.9721501280       6.974172e-04
+## 
+## $`Mauchly's Test for Sphericity`
+##        Effect         W         p p<.05
+## 3       block 0.9426206 0.6232977      
+## 4 order:block 0.9426206 0.6232977      
+## 
+## $`Sphericity Corrections`
+##        Effect       GGe        p[GG] p[GG]<.05      HFe        p[HF]
+## 3       block 0.9457344 0.0005875801         * 1.060541 0.0004429525
+## 4 order:block 0.9457344 0.9672409985           1.060541 0.9721501280
+##   p[HF]<.05
+## 3         *
+## 4
+\end{verbatim}
 
 \section{Extent of Learning}\label{extent-of-learning}
 
+Here we are checking if there are any differences in the extent of
+learning in the abrupt and gradual conditions during the last training
+and last reversal blocks. The data is shown for the 3 groups (30°
+digitizing tablet, 60° digitalizing tablet, 30° VR setups). The orange
+bars here represent the mean reach deviations of the abrupt condition,
+and the blue bars represent the mean reach deviations of gradual
+condition. All of the data has been normalized to the size of the
+rotation.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{plotExtentofLearning}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{twoRate_notebook_files/figure-latex/unnamed-chunk-7-1.pdf}
+
+Here is the ANOVA for each of the tablet30 group, which showed that
+there were no significant differences in the abrupt and gradual
+conditions.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ExtentOfLearningANOVA}\NormalTok{(}\DataTypeTok{group =} \StringTok{'tablet30'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $ANOVA
+##            Effect DFn DFd            F            p p<.05          ges
+## 2           block   1  29 1.064469e+02 3.233667e-11     * 5.502381e-01
+## 3       condition   1  29 1.389807e+00 2.480201e-01       6.367231e-03
+## 4 block:condition   1  29 4.658796e-03 9.460508e-01       2.030507e-05
+\end{verbatim}
+
+Here is the ANOVA for each of the tablet60 group, which showed that
+there were no significant differences in the abrupt and gradual
+conditions.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ExtentOfLearningANOVA}\NormalTok{(}\DataTypeTok{group =} \StringTok{'tablet60'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $ANOVA
+##            Effect DFn DFd            F            p p<.05          ges
+## 2           block   1  27 244.53594288 4.678244e-15     * 7.982554e-01
+## 3       condition   1  27   0.01877024 8.920437e-01       9.148747e-05
+## 4 block:condition   1  27   0.05619955 8.143963e-01       2.262949e-04
+\end{verbatim}
+
+Here is the ANOVA for each of the VR30 group, which showed that there
+were no significant differences in the abrupt and gradual conditions.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ExtentOfLearningANOVA}\NormalTok{(}\DataTypeTok{group =} \StringTok{'VR30'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $ANOVA
+##            Effect DFn DFd           F            p p<.05          ges
+## 2           block   1  18 76.64090547 6.635203e-08     * 0.5078841945
+## 3       condition   1  18  0.11507302 7.383665e-01       0.0022687329
+## 4 block:condition   1  18  0.05084943 8.241322e-01       0.0004706297
+\end{verbatim}
+
 \section{Rebound}\label{rebound}
 
-\section{Two-Rate Model}\label{two-rate-model}
+Here we are checking if there are any differences in the rebound between
+the abrupt and gradual conditions for the 3 groups (30° digitizing
+tablet, 60° digitalizing tablet, 30° VR setups). The orange bars here
+represent the mean reach deviations of the abrupt condition, and the
+blue bars represent the mean reach deviations of gradual condition. All
+of the data has been normalized to the size of the rotation.
 
-\subsection{Polynomial Logistic
-Regression}\label{polynomial-logistic-regression}
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{plotReboundData}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{twoRate_notebook_files/figure-latex/unnamed-chunk-11-1.pdf}
+
+Here is the ANOVA for each of the tablet30 group, which showed that
+there were no significant differences in the abrupt and gradual
+conditions.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{getReboundANOVA}\NormalTok{(}\DataTypeTok{group =} \StringTok{'tablet30'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $ANOVA
+##      Effect DFn DFd         F         p p<.05         ges
+## 2 condition   1  29 0.1522538 0.6992422       0.001854785
+\end{verbatim}
+
+Here is the ANOVA for each of the tablet30 group, which showed that
+there were no significant differences in the abrupt and gradual
+conditions.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{getReboundANOVA}\NormalTok{(}\DataTypeTok{group =} \StringTok{'tablet60'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $ANOVA
+##      Effect DFn DFd       F         p p<.05       ges
+## 2 condition   1  28 1.37354 0.2510805       0.0220682
+\end{verbatim}
+
+Here is the ANOVA for each of the tablet30 group, which showed that
+there were no significant differences in the abrupt and gradual
+conditions.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{getReboundANOVA}\NormalTok{(}\DataTypeTok{group =} \StringTok{'VR30'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $ANOVA
+##      Effect DFn DFd          F         p p<.05         ges
+## 2 condition   1  18 0.01202616 0.9138893       0.000325402
+\end{verbatim}
 
 
 \end{document}

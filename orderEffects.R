@@ -19,16 +19,15 @@ orderData <- function(group) {
   for (ppno in ppnos) {
     
     ppname <- sprintf('%s_p%02d', group, ppno)
-    
     reachdevs <- df[,ppname]
     
     pporder <- demographics[which(demographics$ID == ppno),'order']
-    
+
     for (blockname in names(blocktrials)) {
       
       meanreachdev <- mean(reachdevs[blocktrials[[blockname]]], na.rm=TRUE)
 
-      participant <- c(participant, ppno)
+      participant <- c(participant, ppname)
       block <- c(block, blockname)
       order <- c(order, pporder)
       reachdeviation <- c(reachdeviation, meanreachdev)
@@ -44,14 +43,134 @@ orderData <- function(group) {
 }
 
 
-orderANOVA <- function(group) {
+# orderANOVA <- function(group) {
+#   
+#   df <- orderData(group=group)
+#   
+#   df$participant <- as.factor(df$participant)
+#   df$block <- as.factor(df$block)
+#   df$order <- as.factor(df$order)
+#   
+#   print(ezANOVA(data=df, dv=reachdeviation, wid=participant, within=block, between=order)  )
+#   
+# }
+
+
+
+setup_order_first_ANOVA <- function() {
   
-  df <- orderData(group=group)
+  df_tablet30 <- orderData(group='tablet30')
+  df_VR30 <- orderData(group='VR30')
+  
+  
+  df_tablet30$setup <- 'tablet'
+  df_VR30$setup <- 'VR'
+  df <- rbind(df_tablet30, df_VR30)
+  
+  df <- subset(df, df$block == 'first')
   
   df$participant <- as.factor(df$participant)
-  df$block <- as.factor(df$block)
+  df$setup <- as.factor(df$setup)
+  df$order <- as.factor(df$order)
+
+  print(ezANOVA(data=df, dv=reachdeviation, wid=participant, between = c(setup, order)))
+
+}
+
+rotation_order_first_ANOVA <- function() {
+  
+  df_tablet30 <- orderData(group='tablet30')
+  df_tablet60 <- orderData(group='tablet60')
+  
+  
+  df_tablet30$rotation <- 'tablet30'
+  df_tablet60$rotation <- 'tablet60'
+  df <- rbind(df_tablet30, df_tablet60)
+  df <- subset(df, df$block == 'first')
+  
+  df$participant <- as.factor(df$participant)
+  df$rotation <- as.factor(df$rotation)
   df$order <- as.factor(df$order)
   
-  print(ezANOVA(data=df, dv=reachdeviation, wid=participant, within=block, between=order)  )
+  print(ezANOVA(data=df, dv=reachdeviation, wid=participant, between = c(rotation, order)))
+  
+}
+
+
+setup_order_second_ANOVA <- function() {
+  
+  df_tablet30 <- orderData(group='tablet30')
+  df_VR30 <- orderData(group='VR30')
+  
+  
+  df_tablet30$setup <- 'tablet'
+  df_VR30$setup <- 'VR'
+  df <- rbind(df_tablet30, df_VR30)
+  
+  df <- subset(df, df$block == 'second')
+  
+  df$participant <- as.factor(df$participant)
+  df$setup <- as.factor(df$setup)
+  df$order <- as.factor(df$order)
+  
+  print(ezANOVA(data=df, dv=reachdeviation, wid=participant, between = c(setup, order)))
+  
+}
+
+rotation_order_second_ANOVA <- function() {
+  
+  df_tablet30 <- orderData(group='tablet30')
+  df_tablet60 <- orderData(group='tablet60')
+  
+  
+  df_tablet30$rotation <- 'tablet30'
+  df_tablet60$rotation <- 'tablet60'
+  df <- rbind(df_tablet30, df_tablet60)
+  df <- subset(df, df$block == 'second')
+  
+  df$participant <- as.factor(df$participant)
+  df$rotation <- as.factor(df$rotation)
+  df$order <- as.factor(df$order)
+  
+  print(ezANOVA(data=df, dv=reachdeviation, wid=participant, between = c(rotation, order)))
+  
+}
+
+setup_order_last_ANOVA <- function() {
+  
+  df_tablet30 <- orderData(group='tablet30')
+  df_VR30 <- orderData(group='VR30')
+  
+  
+  df_tablet30$setup <- 'tablet'
+  df_VR30$setup <- 'VR'
+  df <- rbind(df_tablet30, df_VR30)
+  
+  df <- subset(df, df$block == 'last')
+  
+  df$participant <- as.factor(df$participant)
+  df$setup <- as.factor(df$setup)
+  df$order <- as.factor(df$order)
+  
+  print(ezANOVA(data=df, dv=reachdeviation, wid=participant, between = c(setup, order)))
+  
+}
+
+rotation_order_last_ANOVA <- function() {
+  
+  df_tablet30 <- orderData(group='tablet30')
+  df_tablet60 <- orderData(group='tablet60')
+  
+  
+  df_tablet30$rotation <- 'tablet30'
+  df_tablet60$rotation <- 'tablet60'
+  df <- rbind(df_tablet30, df_tablet60)
+  df <- subset(df, df$block == 'last')
+  
+  df$participant <- as.factor(df$participant)
+  df$rotation <- as.factor(df$rotation)
+  df$order <- as.factor(df$order)
+  
+  print(ezANOVA(data=df, dv=reachdeviation, wid=participant, between = c(rotation, order)))
   
 }

@@ -37,7 +37,7 @@ plotOrderData <- function(group) {
     }
     
     axis(side = 1, at = c(1, 3.5, 6), labels = blocks, cex.axis = 0.8)
-    legend("topright", c('abrupt first', 'abrupt second'), fill = c('#8266f4ff', '#e51636ff'), border = NULL, pt.bg = "white")
+    legend("topright", c('abrupt first', 'abrupt second'), fill = c('#8266f4ff', '#e51636ff'), bty = 'n')
     
   }
 }
@@ -80,7 +80,7 @@ plotExtentofLearning <- function(group) {
     }
     
     axis(side = 1, at = c(1, 3.5), labels = blocks, cex.axis = 0.8)
-    legend("topright", c('abrupt', 'gradual'), fill = c('#ff8200ff', '#0087FF'), border = NULL, pt.bg = "white")
+    legend("topright", c('abrupt', 'gradual'), fill = c('#ff8200ff', '#0087FF'), bty='n')
     
 
     
@@ -113,7 +113,7 @@ plotReboundData <- function(group) {
         #create plots
         barplot(width=1, height=meanrebound, space = spacing, beside = TRUE, col = colour, xlim = c(0,10), ylim = c(0,5), xlab = "", ylab = "", axes = TRUE, add = TRUE)
         
-        legend("topright", c('abrupt', 'gradual'), fill = c('#ff8200ff', '#0087FF'), border = NULL, pt.bg = "white")
+        legend("topright", c('abrupt', 'gradual'), fill = c('#ff8200ff', '#0087FF'), bty='n')
         
         se <- sd(df$rebound [which(df$condition==condition)]) / sqrt(length(df$rebound [which(df$condition==condition)]))
         ymin <- meanrebound-se

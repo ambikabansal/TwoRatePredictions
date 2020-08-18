@@ -61,45 +61,80 @@ getExtentofLearning <- function(group) {
 # }
 
 
-ExtentOfLearningANOVA <- function() {
+setupLastTrainingANOVA <- function() {
   
   df_tablet30 <- getExtentofLearning(group='tablet30')
   df_VR30 <- getExtentofLearning(group='VR30')
+  
+  
+  df_tablet30$setup <- 'tablet'
+  df_VR30$setup <- 'VR'
+  df <- rbind(df_tablet30, df_VR30)
+
+  df <- subset(df, df$block == 'last training')
+
+   df$participant <- as.factor(df$participant)
+   df$setup <- as.factor(df$setup)
+   df$condition <- as.factor(df$condition)
+
+  print(ezANOVA(data=df, dv=reachdeviation, wid=participant, within= condition, between = setup))
+
+}
+
+rotationLastTrainingANOVA <- function() {
+  
+  df_tablet30 <- getExtentofLearning(group='tablet30')
+  df_tablet60 <- getExtentofLearning(group='tablet60')
+  
+  
+  df_tablet30$rotation <- 'tablet30'
+  df_tablet60$rotation <- 'tablet60'
+  df <- rbind(df_tablet30, df_tablet60)
+  df <- subset(df, df$block == 'last training')
+
+  df$participant <- as.factor(df$participant)
+  df$rotation <- as.factor(df$rotation)
+  df$condition <- as.factor(df$condition)
+
+  print(ezANOVA(data=df, dv=reachdeviation, wid=participant, within= condition, between = rotation))
+
+}
+
+setupLastReversalANOVA <- function() {
+  
+  df_tablet30 <- getExtentofLearning(group='tablet30')
+  df_VR30 <- getExtentofLearning(group='VR30')
+  
   
   df_tablet30$setup <- 'tablet'
   df_VR30$setup <- 'VR'
   df <- rbind(df_tablet30, df_VR30)
   
-  #return(df)
+  df <- subset(df, df$block == 'last reversal')
   
   df$participant <- as.factor(df$participant)
   df$setup <- as.factor(df$setup)
   df$condition <- as.factor(df$condition)
-  df$block <- as.factor(df$block)
   
-  print(ezANOVA(data=df, dv=reachdeviation, wid=participant, within= c(condition, block), between = setup)  )
+  print(ezANOVA(data=df, dv=reachdeviation, wid=participant, within= condition, between = setup))
   
 }
 
-
-
-setupReboundANOVA <- function() {
+rotationLastReversalANOVA <- function() {
   
-  df_tablet30 <- read.csv(sprintf('data/processedData/tablet30_tworates_new.csv', stringsAsFactors = FALSE))
-  df_tablet60 <- read.csv(sprintf('data/processedData/tablet60_tworates_new.csv', stringsAsFactors = FALSE))
-  #df_VR30 <- read.csv(sprintf('data/processedData/VR30_tworates_new.csv', stringsAsFactors = FALSE))
+  df_tablet30 <- getExtentofLearning(group='tablet30')
+  df_tablet60 <- getExtentofLearning(group='tablet60')
   
-  df_tablet30$setup <- 'tablet30'
-  df_tablet60$setup <- 'tablet60'
-  #df_VR30$setup <- 'VR'
+  
+  df_tablet30$rotation <- 'tablet30'
+  df_tablet60$rotation <- 'tablet60'
   df <- rbind(df_tablet30, df_tablet60)
-  
-  #return(df)
+  df <- subset(df, df$block == 'last reversal')
   
   df$participant <- as.factor(df$participant)
-  df$setup <- as.factor(df$setup)
+  df$rotation <- as.factor(df$rotation)
   df$condition <- as.factor(df$condition)
-
-  print(ezANOVA(data=df, dv=rebound, wid=participant, within= condition, between = setup)  )
+  
+  print(ezANOVA(data=df, dv=reachdeviation, wid=participant, within= condition, between = rotation))
   
 }

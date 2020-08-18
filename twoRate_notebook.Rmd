@@ -2,8 +2,10 @@
 title: "Abrupt versus Gradual Motor Learning"
 output:
   word_document: default
-  pdf_document: default
   html_notebook: default
+  pdf_document: default
+  html_document:
+    df_print: paged
 ---
 
 
@@ -23,7 +25,6 @@ The preview shows you a rendered HTML copy of the contents of the editor. Conseq
 library(svglite)
 library(optimx)
 library(ez)
-library(ggplot2)
 ```
 
 
@@ -33,7 +34,7 @@ library(ggplot2)
 source('orderEffects.R') # this file deals with the order effects and runs the ANOVA
 source('ExtentofLearning.R') # this file deals with the extent of learning and runs the ANOVA
 source('Figures.R') # this file creates the 4 figures
-
+source('ReboundANOVA.R') #this file has the ANOVAs for the rebounds
 ```
 
 
@@ -58,21 +59,38 @@ plotOrderData()
 ```
 
 
-Here is the ANOVA for each of the tablet30 group, which showed no effect of order. 
+Here is the 2x2 ANOVA on the first block of the training phase with setup (tablet30, VR30) and order as our between subjects factors.
 ```{r}
-orderANOVA(group = 'tablet30')
+setup_order_first_ANOVA()
 ```
 
-Here is the ANOVA for each of the tablet60 group, which showed no effect of order. 
+
+Here is the 2x2 ANOVA on the first block of the training phase with rotation (tablet30, tablet60) and order as our between subjects factors.
 ```{r}
-orderANOVA(group = 'tablet60')
+rotation_order_first_ANOVA()
 ```
 
-Here is the ANOVA for each of the VR30 group, which showed no effect of order. 
-```{r}
-orderANOVA(group = 'VR30')
 
+Here is the 2x2 ANOVA on the second block of the training phase with setup (tablet30, VR30) and order as our between subjects factors.
+```{r}
+setup_order_second_ANOVA()
 ```
+
+Here is the 2x2 ANOVA on the second block of the training phase with rotation (tablet30, tablet60) and order as our between subjects factors.
+```{r}
+rotation_order_second_ANOVA()
+```
+
+Here is the 2x2 ANOVA on the last block of the training phase with setup (tablet30, VR30) and order as our between subjects factors.
+```{r}
+setup_order_last_ANOVA()
+```
+
+Here is the 2x2 ANOVA on the last block of the training phase with rotation (tablet30, tablet60) and order as our between subjects factors.
+```{r}
+rotation_order_last_ANOVA()
+```
+
 
 
 # Extent of Learning
@@ -84,11 +102,25 @@ Here we are checking if there are any differences in the extent of learning in t
 plotExtentofLearning()
 ```
 
-Here is the ANOVA for each of the tablet30 group, which showed that there were no significant differences in the abrupt and gradual conditions. 
+Here is the 2x2 ANOVA on the last block of the training phase with setup (tablet30, VR30) as our between subjects factor and condition (abrupt, gradual) as our within-subjects factor.
 ```{r}
-ExtentOfLearningANOVA()
+setupLastTrainingANOVA()
 ```
 
+Here is the 2x2 ANOVA on the last block of the training phase with rotation size (tablet30, tablet60) as our between subjects factor and condition (abrupt, gradual) as our within-subjects factor. 
+```{r}
+rotationLastTrainingANOVA()
+```
+
+Here is the 2x2 ANOVA on the last block of the reversal phase with setup (tablet30, VR30) as our between subjects factor and condition (abrupt, gradual) as our within-subjects factor.
+```{r}
+setupLastReversalANOVA()
+```
+
+Here is the 2x2 ANOVA on the last block of the reversal phase with rotation size (tablet30, tablet60) as our between subjects factor and condition (abrupt, gradual) as our within-subjects factor. 
+```{r}
+rotationLastReversalANOVA()
+```
 
 
 # Rebound
@@ -99,11 +131,35 @@ Here we are checking if there are any differences in the rebound between the abr
 plotReboundData()
 ```
 
-Here is the ANOVA for each of the tablet30 group, which showed that there were no significant differences in the abrupt and gradual conditions. 
+Here is the 2x2 ANOVA on the rebound with setup (tablet30, VR30) as our between subjects factor and condition (abrupt, gradual) as our within-subjects factor.
 ```{r}
 setupReboundANOVA()
 ```
 
+Here is the 2x2 ANOVA on the rebound with rotation size (tablet30, tablet60) as our between subjects factor and condition (abrupt, gradual) as our within-subjects factor. These rebounds here have not been normalized to the rotation size. 
+```{r}
+rotationReboundANOVA()
+```
 
+
+Here is the 2x2 ANOVA on the rebound with rotation size (tablet30, tablet60) as our between subjects factor and condition (abrupt, gradual) as our within-subjects factor. These rebounds have been normalized to the rotation size. 
+```{r}
+normalized_rotationReboundANOVA()
+```
+
+Here is a paired t-test comparing the abrupt and gradual conditions in the tablet30 group.
+```{r}
+getReboundTtest(group = 'tablet30')
+```
+
+Here is a paired t-test comparing the abrupt and gradual conditions in the tablet60 group.
+```{r}
+getReboundTtest(group = 'tablet60')
+```
+
+Here is a paired t-test comparing the abrupt and gradual conditions in the VR30 group.
+```{r}
+getReboundTtest(group = 'VR30')
+```
 
 

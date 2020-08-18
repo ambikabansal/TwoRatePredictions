@@ -295,6 +295,8 @@ source('ReboundANOVA.R') #this file has the ANOVAs for the rebounds</code></pre>
 <div id="order-effects-of-within-subjects-design" class="section level1">
 <h1>Order Effects of Within-Subjects Design</h1>
 <p>This was done only on data from the abrupt condition, with groups (30° digitizing tablet, 60° digitalizing tablet, 30° VR setups) with the blocks (first, second, last training) as our within-subject factors, and order as our between-subject factors. The orange bars here represent the mean reach deviations of the participants who performed the abrupt condition first, and the blue bars represent the mean reach deviations of the participants who performed the gradual condition first. All of the data has been normalized to the size of the rotation.</p>
+<div id="plotting-order-data" class="section level2">
+<h2>Plotting Order Data</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGxvdE9yZGVyRGF0YSgpXG5gYGAifQ== -->
@@ -305,6 +307,11 @@ source('ReboundANOVA.R') #this file has the ANOVAs for the rebounds</code></pre>
 <!-- rnb-plot-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+</div>
+<div id="statistics-on-order-data" class="section level2">
+<h2>Statistics on order data</h2>
+<div id="first-block" class="section level3">
+<h3>first block:</h3>
 <p>Here is the 2x2 ANOVA on the first block of the training phase with setup (tablet30, VR30) and order as our between subjects factors.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
@@ -349,6 +356,9 @@ $`Levene's Test for Homogeneity of Variance`
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+</div>
+<div id="second-block" class="section level3">
+<h3>second block:</h3>
 <p>Here is the 2x2 ANOVA on the second block of the training phase with setup (tablet30, VR30) and order as our between subjects factors.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
@@ -371,6 +381,9 @@ $`Levene's Test for Homogeneity of Variance`
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+</div>
+<div id="third-block" class="section level3">
+<h3>third block:</h3>
 <p>Here is the 2x2 ANOVA on the second block of the training phase with rotation (tablet30, tablet60) and order as our between subjects factors.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
@@ -393,6 +406,9 @@ $`Levene's Test for Homogeneity of Variance`
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+</div>
+<div id="final-block" class="section level3">
+<h3>final block:</h3>
 <p>Here is the 2x2 ANOVA on the last block of the training phase with setup (tablet30, VR30) and order as our between subjects factors.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
@@ -415,6 +431,9 @@ $`Levene's Test for Homogeneity of Variance`
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+</div>
+<div id="final-block-1" class="section level3">
+<h3>final block:</h3>
 <p>Here is the 2x2 ANOVA on the last block of the training phase with rotation (tablet30, tablet60) and order as our between subjects factors.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
@@ -438,9 +457,13 @@ $`Levene's Test for Homogeneity of Variance`
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
+</div>
+</div>
 <div id="extent-of-learning" class="section level1">
 <h1>Extent of Learning</h1>
 <p>Here we are checking if there are any differences in the extent of learning in the abrupt and gradual conditions during the last training and last reversal blocks. The data is shown for the 3 groups (30° digitizing tablet, 60° digitalizing tablet, 30° VR setups). The orange bars here represent the mean reach deviations of the abrupt condition, and the blue bars represent the mean reach deviations of gradual condition. All of the data has been normalized to the size of the rotation.</p>
+<div id="plotting-extent-of-learning" class="section level2">
+<h2>Plotting Extent of Learning</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGxvdEV4dGVudG9mTGVhcm5pbmcoKVxuYGBgIn0= -->
@@ -451,6 +474,11 @@ $`Levene's Test for Homogeneity of Variance`
 <!-- rnb-plot-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+</div>
+<div id="statistics-for-extent-of-learning" class="section level2">
+<h2>Statistics for Extent of Learning</h2>
+<div id="last-block-of-the-training-phase" class="section level3">
+<h3>last block of the training phase:</h3>
 <p>Here is the 2x2 ANOVA on the last block of the training phase with setup (tablet30, VR30) as our between subjects factor and condition (abrupt, gradual) as our within-subjects factor.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
@@ -487,6 +515,9 @@ $`Levene's Test for Homogeneity of Variance`
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+</div>
+<div id="last-block-of-the-reversal-phase" class="section level3">
+<h3>last block of the reversal phase:</h3>
 <p>Here is the 2x2 ANOVA on the last block of the reversal phase with setup (tablet30, VR30) as our between subjects factor and condition (abrupt, gradual) as our within-subjects factor.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
@@ -524,9 +555,13 @@ $`Levene's Test for Homogeneity of Variance`
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
+</div>
+</div>
 <div id="rebound" class="section level1">
 <h1>Rebound</h1>
 <p>Here we are checking if there are any differences in the rebound between the abrupt and gradual conditions for the 3 groups (30° digitizing tablet, 60° digitalizing tablet, 30° VR setups). The orange bars here represent the mean reach deviations of the abrupt condition, and the blue bars represent the mean reach deviations of gradual condition. All of the data has been normalized to the size of the rotation.</p>
+<div id="plotting-rebound" class="section level2">
+<h2>Plotting Rebound</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucGxvdFJlYm91bmREYXRhKClcbmBgYCJ9 -->
@@ -537,6 +572,9 @@ $`Levene's Test for Homogeneity of Variance`
 <!-- rnb-plot-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+</div>
+<div id="statistics-on-rebound" class="section level2">
+<h2>Statistics on Rebound</h2>
 <p>Here is the 2x2 ANOVA on the rebound with setup (tablet30, VR30) as our between subjects factor and condition (abrupt, gradual) as our within-subjects factor.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
@@ -555,24 +593,8 @@ $`Levene's Test for Homogeneity of Variance`
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>Here is the 2x2 ANOVA on the rebound with rotation size (tablet30, tablet60) as our between subjects factor and condition (abrupt, gradual) as our within-subjects factor. These rebounds here have not been normalized to the rotation size.</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucm90YXRpb25SZWJvdW5kQU5PVkEoKVxuYGBgIn0= -->
-<pre class="r"><code>rotationReboundANOVA()</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiRGF0YSBpcyB1bmJhbGFuY2VkICh1bmVxdWFsIE4gcGVyIGdyb3VwKS4gTWFrZSBzdXJlIHlvdSBzcGVjaWZpZWQgYSB3ZWxsLWNvbnNpZGVyZWQgdmFsdWUgZm9yIHRoZSB0eXBlIGFyZ3VtZW50IHRvIGV6QU5PVkEoKS5cbiJ9 -->
-<pre><code>Data is unbalanced (unequal N per group). Make sure you specified a well-considered value for the type argument to ezANOVA().</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiJEFOT1ZBXG4gICAgICAgICAgICAgIEVmZmVjdCBERm4gREZkICAgICAgICAgRiAgICAgICAgICBwIHA8LjA1ICAgICAgICAgZ2VzXG4yICAgICAgICAgICByb3RhdGlvbiAgIDEgIDU3IDMuMTIzNzMyOSAwLjA4MjUxMjU3ICAgICAgIDAuMDMwMjkwNDE3XG4zICAgICAgICAgIGNvbmRpdGlvbiAgIDEgIDU3IDAuNzAzMjg1MyAwLjQwNTE4NTE2ICAgICAgIDAuMDA1Mjc3NjUyXG40IHJvdGF0aW9uOmNvbmRpdGlvbiAgIDEgIDU3IDEuNTExNTQyNSAwLjIyMzk1NDgyICAgICAgIDAuMDExMjc0NjU2XG4ifQ== -->
-<pre><code>$ANOVA
-              Effect DFn DFd         F          p p&lt;.05         ges
-2           rotation   1  57 3.1237329 0.08251257       0.030290417
-3          condition   1  57 0.7032853 0.40518516       0.005277652
-4 rotation:condition   1  57 1.5115425 0.22395482       0.011274656</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
+<div id="normalized-data" class="section level3">
+<h3>Normalized Data:</h3>
 <p>Here is the 2x2 ANOVA on the rebound with rotation size (tablet30, tablet60) as our between subjects factor and condition (abrupt, gradual) as our within-subjects factor. These rebounds have been normalized to the rotation size.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
@@ -591,6 +613,20 @@ $`Levene's Test for Homogeneity of Variance`
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+</div>
+<div id="not-normalized-data" class="section level3">
+<h3>Not Normalized Data</h3>
+<p>Here is the 2x2 ANOVA on the rebound with rotation size (tablet30, tablet60) as our between subjects factor and condition (abrupt, gradual) as our within-subjects factor. These rebounds here have not been normalized to the rotation size.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucm90YXRpb25SZWJvdW5kQU5PVkEoKVxuYGBgIn0= -->
+<pre class="r"><code>rotationReboundANOVA()</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="paired-t-test-for-each-group" class="section level3">
+<h3>paired t-test for each group:</h3>
 <p>Here is a paired t-test comparing the abrupt and gradual conditions in the tablet30 group.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
@@ -654,10 +690,45 @@ mean of the differences
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+</div>
+<div id="one-sample-t-test-for-each-group-for-both-abrupt-and-gradual-conditions" class="section level3">
+<h3>one-sample t-test for each group for both abrupt and gradual conditions:</h3>
+<p>Here is a one-sample t-test with the rebound from the abrupt condition in the tablet30 group.</p>
 <!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYWJydXB0X1JlYm91bmRUdGVzdChncm91cCA9ICd0YWJsZXQzMCcpXG5gYGAifQ== -->
+<pre class="r"><code>abrupt_ReboundTtest(group = 'tablet30')</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Here is a one-sample t-test with the rebound from the gradual condition in the tablet30 group.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ3JhZHVhbF9SZWJvdW5kVHRlc3QoZ3JvdXAgPSAndGFibGV0MzAnKVxuYGBgIn0= -->
+<pre class="r"><code>gradual_ReboundTtest(group = 'tablet30')</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Here is a one-sample t-test with the rebound from the abrupt condition in the tablet60 group.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYWJydXB0X1JlYm91bmRUdGVzdChncm91cCA9ICd0YWJsZXQ2MCcpXG5gYGAifQ== -->
+<pre class="r"><code>abrupt_ReboundTtest(group = 'tablet60')</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Here is a one-sample t-test with the rebound from the gradual condition in the tablet60 group.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ3JhZHVhbF9SZWJvdW5kVHRlc3QoZ3JvdXAgPSAndGFibGV0NjAnKVxuYGBgIn0= -->
+<pre class="r"><code>gradual_ReboundTtest(group = 'tablet60')</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+</div>
+</div>
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiQWJydXB0IHZlcnN1cyBHcmFkdWFsIE1vdG9yIExlYXJuaW5nIgpvdXRwdXQ6CiAgd29yZF9kb2N1bWVudDogZGVmYXVsdAogIGh0bWxfbm90ZWJvb2s6IGRlZmF1bHQKICBwZGZfZG9jdW1lbnQ6IGRlZmF1bHQKICBodG1sX2RvY3VtZW50OgogICAgZGZfcHJpbnQ6IHBhZ2VkCi0tLQoKCmBgYHtyfQpwbG90KGNhcnMpCmBgYAoKQWRkIGEgbmV3IGNodW5rIGJ5IGNsaWNraW5nIHRoZSAqSW5zZXJ0IENodW5rKiBidXR0b24gb24gdGhlIHRvb2xiYXIgb3IgYnkgcHJlc3NpbmcgKkNtZCtPcHRpb24rSSouCgpXaGVuIHlvdSBzYXZlIHRoZSBub3RlYm9vaywgYW4gSFRNTCBmaWxlIGNvbnRhaW5pbmcgdGhlIGNvZGUgYW5kIG91dHB1dCB3aWxsIGJlIHNhdmVkIGFsb25nc2lkZSBpdCAoY2xpY2sgdGhlICpQcmV2aWV3KiBidXR0b24gb3IgcHJlc3MgKkNtZCtTaGlmdCtLKiB0byBwcmV2aWV3IHRoZSBIVE1MIGZpbGUpLiAKClRoZSBwcmV2aWV3IHNob3dzIHlvdSBhIHJlbmRlcmVkIEhUTUwgY29weSBvZiB0aGUgY29udGVudHMgb2YgdGhlIGVkaXRvci4gQ29uc2VxdWVudGx5LCB1bmxpa2UgKktuaXQqLCAqUHJldmlldyogZG9lcyBub3QgcnVuIGFueSBSIGNvZGUgY2h1bmtzLiBJbnN0ZWFkLCB0aGUgb3V0cHV0IG9mIHRoZSBjaHVuayB3aGVuIGl0IHdhcyBsYXN0IHJ1biBpbiB0aGUgZWRpdG9yIGlzIGRpc3BsYXllZC4KCiMgTG9hZCBQYWNrYWdlcwoKYGBge3IgbG9hZHBhY2thZ2VzfQpsaWJyYXJ5KHN2Z2xpdGUpCmxpYnJhcnkob3B0aW14KQpsaWJyYXJ5KGV6KQpgYGAKCgojIExvYWQgUiBzY3JpcHRzCgpgYGB7ciBsb2Fkc291cmNlc30Kc291cmNlKCdvcmRlckVmZmVjdHMuUicpICMgdGhpcyBmaWxlIGRlYWxzIHdpdGggdGhlIG9yZGVyIGVmZmVjdHMgYW5kIHJ1bnMgdGhlIEFOT1ZBCnNvdXJjZSgnRXh0ZW50b2ZMZWFybmluZy5SJykgIyB0aGlzIGZpbGUgZGVhbHMgd2l0aCB0aGUgZXh0ZW50IG9mIGxlYXJuaW5nIGFuZCBydW5zIHRoZSBBTk9WQQpzb3VyY2UoJ0ZpZ3VyZXMuUicpICMgdGhpcyBmaWxlIGNyZWF0ZXMgdGhlIDQgZmlndXJlcwpzb3VyY2UoJ1JlYm91bmRBTk9WQS5SJykgI3RoaXMgZmlsZSBoYXMgdGhlIEFOT1ZBcyBmb3IgdGhlIHJlYm91bmRzCmBgYAoKCiMgT3ZlcnZpZXcKClRoaXMgZG9jdW1lbnQgZGlzY3Vzc2VzIHRoZSBmaWd1cmVzIGFuZCBzdGF0aXN0aWNzIHVzZWQgdG8gaW52ZXN0aWdhdGUgYWJydXB0IHZlcnN1cyBncmFkdWFsIG1vdG9yIGxlYXJuaW5nLiBUaGUgbWFpbiBzZWN0aW9ucyBoZXJlIHdpbGwgYmUgbG9va2luZyBhdCB0aGUgT3JkZXIgRWZmZWN0cywgdGhlIEV4dGVudCBvZiBMZWFybmluZywgYW5kIHRoZSBSZWJvdW5kLgoKCiMgUGxvdHRpbmcgQWxsIG9mIHRoZSBCZWhhdmlvdXJhbCBEYXRhCgpgYGB7cn0KcGxvdEFsbERhdGEoKQpgYGAKCgojIE9yZGVyIEVmZmVjdHMgb2YgV2l0aGluLVN1YmplY3RzIERlc2lnbgoKVGhpcyB3YXMgZG9uZSBvbmx5IG9uIGRhdGEgZnJvbSB0aGUgYWJydXB0IGNvbmRpdGlvbiwgd2l0aCBncm91cHMgKDMwwrAgZGlnaXRpemluZyB0YWJsZXQsIDYwwrAgZGlnaXRhbGl6aW5nIHRhYmxldCwgMzDCsCBWUiBzZXR1cHMpIHdpdGggdGhlIGJsb2NrcyAoZmlyc3QsIHNlY29uZCwgbGFzdCB0cmFpbmluZykgYXMgb3VyIHdpdGhpbi1zdWJqZWN0IGZhY3RvcnMsIGFuZCBvcmRlciBhcyBvdXIgYmV0d2Vlbi1zdWJqZWN0IGZhY3RvcnMuIFRoZSBvcmFuZ2UgYmFycyBoZXJlIHJlcHJlc2VudCB0aGUgbWVhbiByZWFjaCBkZXZpYXRpb25zIG9mIHRoZSBwYXJ0aWNpcGFudHMgd2hvIHBlcmZvcm1lZCB0aGUgYWJydXB0IGNvbmRpdGlvbiBmaXJzdCwgYW5kIHRoZSBibHVlIGJhcnMgcmVwcmVzZW50IHRoZSBtZWFuIHJlYWNoIGRldmlhdGlvbnMgb2YgdGhlIHBhcnRpY2lwYW50cyB3aG8gcGVyZm9ybWVkIHRoZSBncmFkdWFsIGNvbmRpdGlvbiBmaXJzdC4gQWxsIG9mIHRoZSBkYXRhIGhhcyBiZWVuIG5vcm1hbGl6ZWQgdG8gdGhlIHNpemUgb2YgdGhlIHJvdGF0aW9uLiAgCgpgYGB7cn0KcGxvdE9yZGVyRGF0YSgpCmBgYAoKCkhlcmUgaXMgdGhlIDJ4MiBBTk9WQSBvbiB0aGUgZmlyc3QgYmxvY2sgb2YgdGhlIHRyYWluaW5nIHBoYXNlIHdpdGggc2V0dXAgKHRhYmxldDMwLCBWUjMwKSBhbmQgb3JkZXIgYXMgb3VyIGJldHdlZW4gc3ViamVjdHMgZmFjdG9ycy4KYGBge3J9CnNldHVwX29yZGVyX2ZpcnN0X0FOT1ZBKCkKYGBgCgoKSGVyZSBpcyB0aGUgMngyIEFOT1ZBIG9uIHRoZSBmaXJzdCBibG9jayBvZiB0aGUgdHJhaW5pbmcgcGhhc2Ugd2l0aCByb3RhdGlvbiAodGFibGV0MzAsIHRhYmxldDYwKSBhbmQgb3JkZXIgYXMgb3VyIGJldHdlZW4gc3ViamVjdHMgZmFjdG9ycy4KYGBge3J9CnJvdGF0aW9uX29yZGVyX2ZpcnN0X0FOT1ZBKCkKYGBgCgoKSGVyZSBpcyB0aGUgMngyIEFOT1ZBIG9uIHRoZSBzZWNvbmQgYmxvY2sgb2YgdGhlIHRyYWluaW5nIHBoYXNlIHdpdGggc2V0dXAgKHRhYmxldDMwLCBWUjMwKSBhbmQgb3JkZXIgYXMgb3VyIGJldHdlZW4gc3ViamVjdHMgZmFjdG9ycy4KYGBge3J9CnNldHVwX29yZGVyX3NlY29uZF9BTk9WQSgpCmBgYAoKSGVyZSBpcyB0aGUgMngyIEFOT1ZBIG9uIHRoZSBzZWNvbmQgYmxvY2sgb2YgdGhlIHRyYWluaW5nIHBoYXNlIHdpdGggcm90YXRpb24gKHRhYmxldDMwLCB0YWJsZXQ2MCkgYW5kIG9yZGVyIGFzIG91ciBiZXR3ZWVuIHN1YmplY3RzIGZhY3RvcnMuCmBgYHtyfQpyb3RhdGlvbl9vcmRlcl9zZWNvbmRfQU5PVkEoKQpgYGAKCkhlcmUgaXMgdGhlIDJ4MiBBTk9WQSBvbiB0aGUgbGFzdCBibG9jayBvZiB0aGUgdHJhaW5pbmcgcGhhc2Ugd2l0aCBzZXR1cCAodGFibGV0MzAsIFZSMzApIGFuZCBvcmRlciBhcyBvdXIgYmV0d2VlbiBzdWJqZWN0cyBmYWN0b3JzLgpgYGB7cn0Kc2V0dXBfb3JkZXJfbGFzdF9BTk9WQSgpCmBgYAoKSGVyZSBpcyB0aGUgMngyIEFOT1ZBIG9uIHRoZSBsYXN0IGJsb2NrIG9mIHRoZSB0cmFpbmluZyBwaGFzZSB3aXRoIHJvdGF0aW9uICh0YWJsZXQzMCwgdGFibGV0NjApIGFuZCBvcmRlciBhcyBvdXIgYmV0d2VlbiBzdWJqZWN0cyBmYWN0b3JzLgpgYGB7cn0Kcm90YXRpb25fb3JkZXJfbGFzdF9BTk9WQSgpCmBgYAoKCgojIEV4dGVudCBvZiBMZWFybmluZwoKSGVyZSB3ZSBhcmUgY2hlY2tpbmcgaWYgdGhlcmUgYXJlIGFueSBkaWZmZXJlbmNlcyBpbiB0aGUgZXh0ZW50IG9mIGxlYXJuaW5nIGluIHRoZSBhYnJ1cHQgYW5kIGdyYWR1YWwgY29uZGl0aW9ucyBkdXJpbmcgdGhlIGxhc3QgdHJhaW5pbmcgYW5kIGxhc3QgcmV2ZXJzYWwgYmxvY2tzLiBUaGUgZGF0YSBpcyBzaG93biBmb3IgdGhlIDMgZ3JvdXBzICgzMMKwIGRpZ2l0aXppbmcgdGFibGV0LCA2MMKwIGRpZ2l0YWxpemluZyB0YWJsZXQsIDMwwrAgVlIgc2V0dXBzKS4gVGhlIG9yYW5nZSBiYXJzIGhlcmUgcmVwcmVzZW50IHRoZSBtZWFuIHJlYWNoIGRldmlhdGlvbnMgb2YgdGhlIGFicnVwdCBjb25kaXRpb24sIGFuZCB0aGUgYmx1ZSBiYXJzIHJlcHJlc2VudCB0aGUgbWVhbiByZWFjaCBkZXZpYXRpb25zIG9mIGdyYWR1YWwgY29uZGl0aW9uLiBBbGwgb2YgdGhlIGRhdGEgaGFzIGJlZW4gbm9ybWFsaXplZCB0byB0aGUgc2l6ZSBvZiB0aGUgcm90YXRpb24uIAoKCmBgYHtyfQpwbG90RXh0ZW50b2ZMZWFybmluZygpCmBgYAoKSGVyZSBpcyB0aGUgMngyIEFOT1ZBIG9uIHRoZSBsYXN0IGJsb2NrIG9mIHRoZSB0cmFpbmluZyBwaGFzZSB3aXRoIHNldHVwICh0YWJsZXQzMCwgVlIzMCkgYXMgb3VyIGJldHdlZW4gc3ViamVjdHMgZmFjdG9yIGFuZCBjb25kaXRpb24gKGFicnVwdCwgZ3JhZHVhbCkgYXMgb3VyIHdpdGhpbi1zdWJqZWN0cyBmYWN0b3IuCmBgYHtyfQpzZXR1cExhc3RUcmFpbmluZ0FOT1ZBKCkKYGBgCgpIZXJlIGlzIHRoZSAyeDIgQU5PVkEgb24gdGhlIGxhc3QgYmxvY2sgb2YgdGhlIHRyYWluaW5nIHBoYXNlIHdpdGggcm90YXRpb24gc2l6ZSAodGFibGV0MzAsIHRhYmxldDYwKSBhcyBvdXIgYmV0d2VlbiBzdWJqZWN0cyBmYWN0b3IgYW5kIGNvbmRpdGlvbiAoYWJydXB0LCBncmFkdWFsKSBhcyBvdXIgd2l0aGluLXN1YmplY3RzIGZhY3Rvci4gCmBgYHtyfQpyb3RhdGlvbkxhc3RUcmFpbmluZ0FOT1ZBKCkKYGBgCgpIZXJlIGlzIHRoZSAyeDIgQU5PVkEgb24gdGhlIGxhc3QgYmxvY2sgb2YgdGhlIHJldmVyc2FsIHBoYXNlIHdpdGggc2V0dXAgKHRhYmxldDMwLCBWUjMwKSBhcyBvdXIgYmV0d2VlbiBzdWJqZWN0cyBmYWN0b3IgYW5kIGNvbmRpdGlvbiAoYWJydXB0LCBncmFkdWFsKSBhcyBvdXIgd2l0aGluLXN1YmplY3RzIGZhY3Rvci4KYGBge3J9CnNldHVwTGFzdFJldmVyc2FsQU5PVkEoKQpgYGAKCkhlcmUgaXMgdGhlIDJ4MiBBTk9WQSBvbiB0aGUgbGFzdCBibG9jayBvZiB0aGUgcmV2ZXJzYWwgcGhhc2Ugd2l0aCByb3RhdGlvbiBzaXplICh0YWJsZXQzMCwgdGFibGV0NjApIGFzIG91ciBiZXR3ZWVuIHN1YmplY3RzIGZhY3RvciBhbmQgY29uZGl0aW9uIChhYnJ1cHQsIGdyYWR1YWwpIGFzIG91ciB3aXRoaW4tc3ViamVjdHMgZmFjdG9yLiAKYGBge3J9CnJvdGF0aW9uTGFzdFJldmVyc2FsQU5PVkEoKQpgYGAKCgojIFJlYm91bmQKCkhlcmUgd2UgYXJlIGNoZWNraW5nIGlmIHRoZXJlIGFyZSBhbnkgZGlmZmVyZW5jZXMgaW4gdGhlIHJlYm91bmQgYmV0d2VlbiB0aGUgYWJydXB0IGFuZCBncmFkdWFsIGNvbmRpdGlvbnMgZm9yIHRoZSAzIGdyb3VwcyAoMzDCsCBkaWdpdGl6aW5nIHRhYmxldCwgNjDCsCBkaWdpdGFsaXppbmcgdGFibGV0LCAzMMKwIFZSIHNldHVwcykuIFRoZSBvcmFuZ2UgYmFycyBoZXJlIHJlcHJlc2VudCB0aGUgbWVhbiByZWFjaCBkZXZpYXRpb25zIG9mIHRoZSBhYnJ1cHQgY29uZGl0aW9uLCBhbmQgdGhlIGJsdWUgYmFycyByZXByZXNlbnQgdGhlIG1lYW4gcmVhY2ggZGV2aWF0aW9ucyBvZiBncmFkdWFsIGNvbmRpdGlvbi4gQWxsIG9mIHRoZSBkYXRhIGhhcyBiZWVuIG5vcm1hbGl6ZWQgdG8gdGhlIHNpemUgb2YgdGhlIHJvdGF0aW9uLiAKCmBgYHtyfQpwbG90UmVib3VuZERhdGEoKQpgYGAKCkhlcmUgaXMgdGhlIDJ4MiBBTk9WQSBvbiB0aGUgcmVib3VuZCB3aXRoIHNldHVwICh0YWJsZXQzMCwgVlIzMCkgYXMgb3VyIGJldHdlZW4gc3ViamVjdHMgZmFjdG9yIGFuZCBjb25kaXRpb24gKGFicnVwdCwgZ3JhZHVhbCkgYXMgb3VyIHdpdGhpbi1zdWJqZWN0cyBmYWN0b3IuCmBgYHtyfQpzZXR1cFJlYm91bmRBTk9WQSgpCmBgYAoKSGVyZSBpcyB0aGUgMngyIEFOT1ZBIG9uIHRoZSByZWJvdW5kIHdpdGggcm90YXRpb24gc2l6ZSAodGFibGV0MzAsIHRhYmxldDYwKSBhcyBvdXIgYmV0d2VlbiBzdWJqZWN0cyBmYWN0b3IgYW5kIGNvbmRpdGlvbiAoYWJydXB0LCBncmFkdWFsKSBhcyBvdXIgd2l0aGluLXN1YmplY3RzIGZhY3Rvci4gVGhlc2UgcmVib3VuZHMgaGVyZSBoYXZlIG5vdCBiZWVuIG5vcm1hbGl6ZWQgdG8gdGhlIHJvdGF0aW9uIHNpemUuIApgYGB7cn0Kcm90YXRpb25SZWJvdW5kQU5PVkEoKQpgYGAKCgpIZXJlIGlzIHRoZSAyeDIgQU5PVkEgb24gdGhlIHJlYm91bmQgd2l0aCByb3RhdGlvbiBzaXplICh0YWJsZXQzMCwgdGFibGV0NjApIGFzIG91ciBiZXR3ZWVuIHN1YmplY3RzIGZhY3RvciBhbmQgY29uZGl0aW9uIChhYnJ1cHQsIGdyYWR1YWwpIGFzIG91ciB3aXRoaW4tc3ViamVjdHMgZmFjdG9yLiBUaGVzZSByZWJvdW5kcyBoYXZlIGJlZW4gbm9ybWFsaXplZCB0byB0aGUgcm90YXRpb24gc2l6ZS4gCmBgYHtyfQpub3JtYWxpemVkX3JvdGF0aW9uUmVib3VuZEFOT1ZBKCkKYGBgCgpIZXJlIGlzIGEgcGFpcmVkIHQtdGVzdCBjb21wYXJpbmcgdGhlIGFicnVwdCBhbmQgZ3JhZHVhbCBjb25kaXRpb25zIGluIHRoZSB0YWJsZXQzMCBncm91cC4KYGBge3J9CmdldFJlYm91bmRUdGVzdChncm91cCA9ICd0YWJsZXQzMCcpCmBgYAoKSGVyZSBpcyBhIHBhaXJlZCB0LXRlc3QgY29tcGFyaW5nIHRoZSBhYnJ1cHQgYW5kIGdyYWR1YWwgY29uZGl0aW9ucyBpbiB0aGUgdGFibGV0NjAgZ3JvdXAuCmBgYHtyfQpnZXRSZWJvdW5kVHRlc3QoZ3JvdXAgPSAndGFibGV0NjAnKQpgYGAKCkhlcmUgaXMgYSBwYWlyZWQgdC10ZXN0IGNvbXBhcmluZyB0aGUgYWJydXB0IGFuZCBncmFkdWFsIGNvbmRpdGlvbnMgaW4gdGhlIFZSMzAgZ3JvdXAuCmBgYHtyfQpnZXRSZWJvdW5kVHRlc3QoZ3JvdXAgPSAnVlIzMCcpCmBgYAoKCg==</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiQWJydXB0IHZlcnN1cyBHcmFkdWFsIE1vdG9yIExlYXJuaW5nIgpvdXRwdXQ6CiAgd29yZF9kb2N1bWVudDogZGVmYXVsdAogIGh0bWxfbm90ZWJvb2s6IGRlZmF1bHQKICBwZGZfZG9jdW1lbnQ6IGRlZmF1bHQKICBodG1sX2RvY3VtZW50OgogICAgZGZfcHJpbnQ6IHBhZ2VkCi0tLQoKCmBgYHtyfQpwbG90KGNhcnMpCmBgYAoKQWRkIGEgbmV3IGNodW5rIGJ5IGNsaWNraW5nIHRoZSAqSW5zZXJ0IENodW5rKiBidXR0b24gb24gdGhlIHRvb2xiYXIgb3IgYnkgcHJlc3NpbmcgKkNtZCtPcHRpb24rSSouCgpXaGVuIHlvdSBzYXZlIHRoZSBub3RlYm9vaywgYW4gSFRNTCBmaWxlIGNvbnRhaW5pbmcgdGhlIGNvZGUgYW5kIG91dHB1dCB3aWxsIGJlIHNhdmVkIGFsb25nc2lkZSBpdCAoY2xpY2sgdGhlICpQcmV2aWV3KiBidXR0b24gb3IgcHJlc3MgKkNtZCtTaGlmdCtLKiB0byBwcmV2aWV3IHRoZSBIVE1MIGZpbGUpLiAKClRoZSBwcmV2aWV3IHNob3dzIHlvdSBhIHJlbmRlcmVkIEhUTUwgY29weSBvZiB0aGUgY29udGVudHMgb2YgdGhlIGVkaXRvci4gQ29uc2VxdWVudGx5LCB1bmxpa2UgKktuaXQqLCAqUHJldmlldyogZG9lcyBub3QgcnVuIGFueSBSIGNvZGUgY2h1bmtzLiBJbnN0ZWFkLCB0aGUgb3V0cHV0IG9mIHRoZSBjaHVuayB3aGVuIGl0IHdhcyBsYXN0IHJ1biBpbiB0aGUgZWRpdG9yIGlzIGRpc3BsYXllZC4KCiMgTG9hZCBQYWNrYWdlcwoKYGBge3IgbG9hZHBhY2thZ2VzfQpsaWJyYXJ5KHN2Z2xpdGUpCmxpYnJhcnkob3B0aW14KQpsaWJyYXJ5KGV6KQpgYGAKCgojIExvYWQgUiBzY3JpcHRzCgpgYGB7ciBsb2Fkc291cmNlc30Kc291cmNlKCdvcmRlckVmZmVjdHMuUicpICMgdGhpcyBmaWxlIGRlYWxzIHdpdGggdGhlIG9yZGVyIGVmZmVjdHMgYW5kIHJ1bnMgdGhlIEFOT1ZBCnNvdXJjZSgnRXh0ZW50b2ZMZWFybmluZy5SJykgIyB0aGlzIGZpbGUgZGVhbHMgd2l0aCB0aGUgZXh0ZW50IG9mIGxlYXJuaW5nIGFuZCBydW5zIHRoZSBBTk9WQQpzb3VyY2UoJ0ZpZ3VyZXMuUicpICMgdGhpcyBmaWxlIGNyZWF0ZXMgdGhlIDQgZmlndXJlcwpzb3VyY2UoJ1JlYm91bmRBTk9WQS5SJykgI3RoaXMgZmlsZSBoYXMgdGhlIEFOT1ZBcyBmb3IgdGhlIHJlYm91bmRzCmBgYAoKCiMgT3ZlcnZpZXcKClRoaXMgZG9jdW1lbnQgZGlzY3Vzc2VzIHRoZSBmaWd1cmVzIGFuZCBzdGF0aXN0aWNzIHVzZWQgdG8gaW52ZXN0aWdhdGUgYWJydXB0IHZlcnN1cyBncmFkdWFsIG1vdG9yIGxlYXJuaW5nLiBUaGUgbWFpbiBzZWN0aW9ucyBoZXJlIHdpbGwgYmUgbG9va2luZyBhdCB0aGUgT3JkZXIgRWZmZWN0cywgdGhlIEV4dGVudCBvZiBMZWFybmluZywgYW5kIHRoZSBSZWJvdW5kLgoKCiMgUGxvdHRpbmcgQWxsIG9mIHRoZSBCZWhhdmlvdXJhbCBEYXRhCgpgYGB7cn0KcGxvdEFsbERhdGEoKQpgYGAKCgojIE9yZGVyIEVmZmVjdHMgb2YgV2l0aGluLVN1YmplY3RzIERlc2lnbgoKVGhpcyB3YXMgZG9uZSBvbmx5IG9uIGRhdGEgZnJvbSB0aGUgYWJydXB0IGNvbmRpdGlvbiwgd2l0aCBncm91cHMgKDMwwrAgZGlnaXRpemluZyB0YWJsZXQsIDYwwrAgZGlnaXRhbGl6aW5nIHRhYmxldCwgMzDCsCBWUiBzZXR1cHMpIHdpdGggdGhlIGJsb2NrcyAoZmlyc3QsIHNlY29uZCwgbGFzdCB0cmFpbmluZykgYXMgb3VyIHdpdGhpbi1zdWJqZWN0IGZhY3RvcnMsIGFuZCBvcmRlciBhcyBvdXIgYmV0d2Vlbi1zdWJqZWN0IGZhY3RvcnMuIFRoZSBvcmFuZ2UgYmFycyBoZXJlIHJlcHJlc2VudCB0aGUgbWVhbiByZWFjaCBkZXZpYXRpb25zIG9mIHRoZSBwYXJ0aWNpcGFudHMgd2hvIHBlcmZvcm1lZCB0aGUgYWJydXB0IGNvbmRpdGlvbiBmaXJzdCwgYW5kIHRoZSBibHVlIGJhcnMgcmVwcmVzZW50IHRoZSBtZWFuIHJlYWNoIGRldmlhdGlvbnMgb2YgdGhlIHBhcnRpY2lwYW50cyB3aG8gcGVyZm9ybWVkIHRoZSBncmFkdWFsIGNvbmRpdGlvbiBmaXJzdC4gQWxsIG9mIHRoZSBkYXRhIGhhcyBiZWVuIG5vcm1hbGl6ZWQgdG8gdGhlIHNpemUgb2YgdGhlIHJvdGF0aW9uLiAgCgoKIyMgUGxvdHRpbmcgT3JkZXIgRGF0YQpgYGB7cn0KcGxvdE9yZGVyRGF0YSgpCmBgYAoKCiMjIFN0YXRpc3RpY3Mgb24gb3JkZXIgZGF0YQoKIyMjIGZpcnN0IGJsb2NrOgoKSGVyZSBpcyB0aGUgMngyIEFOT1ZBIG9uIHRoZSBmaXJzdCBibG9jayBvZiB0aGUgdHJhaW5pbmcgcGhhc2Ugd2l0aCBzZXR1cCAodGFibGV0MzAsIFZSMzApIGFuZCBvcmRlciBhcyBvdXIgYmV0d2VlbiBzdWJqZWN0cyBmYWN0b3JzLgpgYGB7cn0Kc2V0dXBfb3JkZXJfZmlyc3RfQU5PVkEoKQpgYGAKCgoKSGVyZSBpcyB0aGUgMngyIEFOT1ZBIG9uIHRoZSBmaXJzdCBibG9jayBvZiB0aGUgdHJhaW5pbmcgcGhhc2Ugd2l0aCByb3RhdGlvbiAodGFibGV0MzAsIHRhYmxldDYwKSBhbmQgb3JkZXIgYXMgb3VyIGJldHdlZW4gc3ViamVjdHMgZmFjdG9ycy4KYGBge3J9CnJvdGF0aW9uX29yZGVyX2ZpcnN0X0FOT1ZBKCkKYGBgCgoKCiMjIyBzZWNvbmQgYmxvY2s6CgpIZXJlIGlzIHRoZSAyeDIgQU5PVkEgb24gdGhlIHNlY29uZCBibG9jayBvZiB0aGUgdHJhaW5pbmcgcGhhc2Ugd2l0aCBzZXR1cCAodGFibGV0MzAsIFZSMzApIGFuZCBvcmRlciBhcyBvdXIgYmV0d2VlbiBzdWJqZWN0cyBmYWN0b3JzLgpgYGB7cn0Kc2V0dXBfb3JkZXJfc2Vjb25kX0FOT1ZBKCkKYGBgCgoKCiMjIyB0aGlyZCBibG9jazoKCkhlcmUgaXMgdGhlIDJ4MiBBTk9WQSBvbiB0aGUgc2Vjb25kIGJsb2NrIG9mIHRoZSB0cmFpbmluZyBwaGFzZSB3aXRoIHJvdGF0aW9uICh0YWJsZXQzMCwgdGFibGV0NjApIGFuZCBvcmRlciBhcyBvdXIgYmV0d2VlbiBzdWJqZWN0cyBmYWN0b3JzLgpgYGB7cn0Kcm90YXRpb25fb3JkZXJfc2Vjb25kX0FOT1ZBKCkKYGBgCgoKCiMjIyBmaW5hbCBibG9jazoKCkhlcmUgaXMgdGhlIDJ4MiBBTk9WQSBvbiB0aGUgbGFzdCBibG9jayBvZiB0aGUgdHJhaW5pbmcgcGhhc2Ugd2l0aCBzZXR1cCAodGFibGV0MzAsIFZSMzApIGFuZCBvcmRlciBhcyBvdXIgYmV0d2VlbiBzdWJqZWN0cyBmYWN0b3JzLgpgYGB7cn0Kc2V0dXBfb3JkZXJfbGFzdF9BTk9WQSgpCmBgYAoKCgojIyMgZmluYWwgYmxvY2s6CgpIZXJlIGlzIHRoZSAyeDIgQU5PVkEgb24gdGhlIGxhc3QgYmxvY2sgb2YgdGhlIHRyYWluaW5nIHBoYXNlIHdpdGggcm90YXRpb24gKHRhYmxldDMwLCB0YWJsZXQ2MCkgYW5kIG9yZGVyIGFzIG91ciBiZXR3ZWVuIHN1YmplY3RzIGZhY3RvcnMuCmBgYHtyfQpyb3RhdGlvbl9vcmRlcl9sYXN0X0FOT1ZBKCkKYGBgCgoKCgoKCiMgRXh0ZW50IG9mIExlYXJuaW5nCgpIZXJlIHdlIGFyZSBjaGVja2luZyBpZiB0aGVyZSBhcmUgYW55IGRpZmZlcmVuY2VzIGluIHRoZSBleHRlbnQgb2YgbGVhcm5pbmcgaW4gdGhlIGFicnVwdCBhbmQgZ3JhZHVhbCBjb25kaXRpb25zIGR1cmluZyB0aGUgbGFzdCB0cmFpbmluZyBhbmQgbGFzdCByZXZlcnNhbCBibG9ja3MuIFRoZSBkYXRhIGlzIHNob3duIGZvciB0aGUgMyBncm91cHMgKDMwwrAgZGlnaXRpemluZyB0YWJsZXQsIDYwwrAgZGlnaXRhbGl6aW5nIHRhYmxldCwgMzDCsCBWUiBzZXR1cHMpLiBUaGUgb3JhbmdlIGJhcnMgaGVyZSByZXByZXNlbnQgdGhlIG1lYW4gcmVhY2ggZGV2aWF0aW9ucyBvZiB0aGUgYWJydXB0IGNvbmRpdGlvbiwgYW5kIHRoZSBibHVlIGJhcnMgcmVwcmVzZW50IHRoZSBtZWFuIHJlYWNoIGRldmlhdGlvbnMgb2YgZ3JhZHVhbCBjb25kaXRpb24uIEFsbCBvZiB0aGUgZGF0YSBoYXMgYmVlbiBub3JtYWxpemVkIHRvIHRoZSBzaXplIG9mIHRoZSByb3RhdGlvbi4gCgoKCiMjIFBsb3R0aW5nIEV4dGVudCBvZiBMZWFybmluZwpgYGB7cn0KcGxvdEV4dGVudG9mTGVhcm5pbmcoKQpgYGAKCgoKIyMgU3RhdGlzdGljcyBmb3IgRXh0ZW50IG9mIExlYXJuaW5nCgoKIyMjIGxhc3QgYmxvY2sgb2YgdGhlIHRyYWluaW5nIHBoYXNlOgoKSGVyZSBpcyB0aGUgMngyIEFOT1ZBIG9uIHRoZSBsYXN0IGJsb2NrIG9mIHRoZSB0cmFpbmluZyBwaGFzZSB3aXRoIHNldHVwICh0YWJsZXQzMCwgVlIzMCkgYXMgb3VyIGJldHdlZW4gc3ViamVjdHMgZmFjdG9yIGFuZCBjb25kaXRpb24gKGFicnVwdCwgZ3JhZHVhbCkgYXMgb3VyIHdpdGhpbi1zdWJqZWN0cyBmYWN0b3IuCmBgYHtyfQpzZXR1cExhc3RUcmFpbmluZ0FOT1ZBKCkKYGBgCgoKCkhlcmUgaXMgdGhlIDJ4MiBBTk9WQSBvbiB0aGUgbGFzdCBibG9jayBvZiB0aGUgdHJhaW5pbmcgcGhhc2Ugd2l0aCByb3RhdGlvbiBzaXplICh0YWJsZXQzMCwgdGFibGV0NjApIGFzIG91ciBiZXR3ZWVuIHN1YmplY3RzIGZhY3RvciBhbmQgY29uZGl0aW9uIChhYnJ1cHQsIGdyYWR1YWwpIGFzIG91ciB3aXRoaW4tc3ViamVjdHMgZmFjdG9yLiAKYGBge3J9CnJvdGF0aW9uTGFzdFRyYWluaW5nQU5PVkEoKQpgYGAKCgoKIyMjIGxhc3QgYmxvY2sgb2YgdGhlIHJldmVyc2FsIHBoYXNlOgoKSGVyZSBpcyB0aGUgMngyIEFOT1ZBIG9uIHRoZSBsYXN0IGJsb2NrIG9mIHRoZSByZXZlcnNhbCBwaGFzZSB3aXRoIHNldHVwICh0YWJsZXQzMCwgVlIzMCkgYXMgb3VyIGJldHdlZW4gc3ViamVjdHMgZmFjdG9yIGFuZCBjb25kaXRpb24gKGFicnVwdCwgZ3JhZHVhbCkgYXMgb3VyIHdpdGhpbi1zdWJqZWN0cyBmYWN0b3IuCmBgYHtyfQpzZXR1cExhc3RSZXZlcnNhbEFOT1ZBKCkKYGBgCgoKCkhlcmUgaXMgdGhlIDJ4MiBBTk9WQSBvbiB0aGUgbGFzdCBibG9jayBvZiB0aGUgcmV2ZXJzYWwgcGhhc2Ugd2l0aCByb3RhdGlvbiBzaXplICh0YWJsZXQzMCwgdGFibGV0NjApIGFzIG91ciBiZXR3ZWVuIHN1YmplY3RzIGZhY3RvciBhbmQgY29uZGl0aW9uIChhYnJ1cHQsIGdyYWR1YWwpIGFzIG91ciB3aXRoaW4tc3ViamVjdHMgZmFjdG9yLiAKYGBge3J9CnJvdGF0aW9uTGFzdFJldmVyc2FsQU5PVkEoKQpgYGAKCgoKCgojIFJlYm91bmQKCkhlcmUgd2UgYXJlIGNoZWNraW5nIGlmIHRoZXJlIGFyZSBhbnkgZGlmZmVyZW5jZXMgaW4gdGhlIHJlYm91bmQgYmV0d2VlbiB0aGUgYWJydXB0IGFuZCBncmFkdWFsIGNvbmRpdGlvbnMgZm9yIHRoZSAzIGdyb3VwcyAoMzDCsCBkaWdpdGl6aW5nIHRhYmxldCwgNjDCsCBkaWdpdGFsaXppbmcgdGFibGV0LCAzMMKwIFZSIHNldHVwcykuIFRoZSBvcmFuZ2UgYmFycyBoZXJlIHJlcHJlc2VudCB0aGUgbWVhbiByZWFjaCBkZXZpYXRpb25zIG9mIHRoZSBhYnJ1cHQgY29uZGl0aW9uLCBhbmQgdGhlIGJsdWUgYmFycyByZXByZXNlbnQgdGhlIG1lYW4gcmVhY2ggZGV2aWF0aW9ucyBvZiBncmFkdWFsIGNvbmRpdGlvbi4gQWxsIG9mIHRoZSBkYXRhIGhhcyBiZWVuIG5vcm1hbGl6ZWQgdG8gdGhlIHNpemUgb2YgdGhlIHJvdGF0aW9uLiAKCgojIyBQbG90dGluZyBSZWJvdW5kCgpgYGB7cn0KcGxvdFJlYm91bmREYXRhKCkKYGBgCgoKIyMgU3RhdGlzdGljcyBvbiBSZWJvdW5kCgoKCkhlcmUgaXMgdGhlIDJ4MiBBTk9WQSBvbiB0aGUgcmVib3VuZCB3aXRoIHNldHVwICh0YWJsZXQzMCwgVlIzMCkgYXMgb3VyIGJldHdlZW4gc3ViamVjdHMgZmFjdG9yIGFuZCBjb25kaXRpb24gKGFicnVwdCwgZ3JhZHVhbCkgYXMgb3VyIHdpdGhpbi1zdWJqZWN0cyBmYWN0b3IuCmBgYHtyfQpzZXR1cFJlYm91bmRBTk9WQSgpCmBgYAoKCiMjIyBOb3JtYWxpemVkIERhdGE6IAoKCkhlcmUgaXMgdGhlIDJ4MiBBTk9WQSBvbiB0aGUgcmVib3VuZCB3aXRoIHJvdGF0aW9uIHNpemUgKHRhYmxldDMwLCB0YWJsZXQ2MCkgYXMgb3VyIGJldHdlZW4gc3ViamVjdHMgZmFjdG9yIGFuZCBjb25kaXRpb24gKGFicnVwdCwgZ3JhZHVhbCkgYXMgb3VyIHdpdGhpbi1zdWJqZWN0cyBmYWN0b3IuIFRoZXNlIHJlYm91bmRzIGhhdmUgYmVlbiBub3JtYWxpemVkIHRvIHRoZSByb3RhdGlvbiBzaXplLiAKYGBge3J9Cm5vcm1hbGl6ZWRfcm90YXRpb25SZWJvdW5kQU5PVkEoKQpgYGAKCgoKIyMjIE5vdCBOb3JtYWxpemVkIERhdGEKCkhlcmUgaXMgdGhlIDJ4MiBBTk9WQSBvbiB0aGUgcmVib3VuZCB3aXRoIHJvdGF0aW9uIHNpemUgKHRhYmxldDMwLCB0YWJsZXQ2MCkgYXMgb3VyIGJldHdlZW4gc3ViamVjdHMgZmFjdG9yIGFuZCBjb25kaXRpb24gKGFicnVwdCwgZ3JhZHVhbCkgYXMgb3VyIHdpdGhpbi1zdWJqZWN0cyBmYWN0b3IuIFRoZXNlIHJlYm91bmRzIGhlcmUgaGF2ZSBub3QgYmVlbiBub3JtYWxpemVkIHRvIHRoZSByb3RhdGlvbiBzaXplLiAKYGBge3J9CnJvdGF0aW9uUmVib3VuZEFOT1ZBKCkKYGBgCgoKCgoKIyMjIHBhaXJlZCB0LXRlc3QgZm9yIGVhY2ggZ3JvdXA6CgoKSGVyZSBpcyBhIHBhaXJlZCB0LXRlc3QgY29tcGFyaW5nIHRoZSBhYnJ1cHQgYW5kIGdyYWR1YWwgY29uZGl0aW9ucyBpbiB0aGUgdGFibGV0MzAgZ3JvdXAuCmBgYHtyfQpnZXRSZWJvdW5kVHRlc3QoZ3JvdXAgPSAndGFibGV0MzAnKQpgYGAKCgoKSGVyZSBpcyBhIHBhaXJlZCB0LXRlc3QgY29tcGFyaW5nIHRoZSBhYnJ1cHQgYW5kIGdyYWR1YWwgY29uZGl0aW9ucyBpbiB0aGUgdGFibGV0NjAgZ3JvdXAuCmBgYHtyfQpnZXRSZWJvdW5kVHRlc3QoZ3JvdXAgPSAndGFibGV0NjAnKQpgYGAKCgoKSGVyZSBpcyBhIHBhaXJlZCB0LXRlc3QgY29tcGFyaW5nIHRoZSBhYnJ1cHQgYW5kIGdyYWR1YWwgY29uZGl0aW9ucyBpbiB0aGUgVlIzMCBncm91cC4KYGBge3J9CmdldFJlYm91bmRUdGVzdChncm91cCA9ICdWUjMwJykKYGBgCgoKCgojIyMgb25lLXNhbXBsZSB0LXRlc3QgZm9yIGVhY2ggZ3JvdXAgZm9yIGJvdGggYWJydXB0IGFuZCBncmFkdWFsIGNvbmRpdGlvbnM6CgoKSGVyZSBpcyBhIG9uZS1zYW1wbGUgdC10ZXN0IHdpdGggdGhlIHJlYm91bmQgZnJvbSB0aGUgYWJydXB0IGNvbmRpdGlvbiBpbiB0aGUgdGFibGV0MzAgZ3JvdXAuCmBgYHtyfQphYnJ1cHRfUmVib3VuZFR0ZXN0KGdyb3VwID0gJ3RhYmxldDMwJykKYGBgCgoKCgpIZXJlIGlzIGEgb25lLXNhbXBsZSB0LXRlc3Qgd2l0aCB0aGUgcmVib3VuZCBmcm9tIHRoZSBncmFkdWFsIGNvbmRpdGlvbiBpbiB0aGUgdGFibGV0MzAgZ3JvdXAuCmBgYHtyfQpncmFkdWFsX1JlYm91bmRUdGVzdChncm91cCA9ICd0YWJsZXQzMCcpCmBgYAoKCgoKSGVyZSBpcyBhIG9uZS1zYW1wbGUgdC10ZXN0IHdpdGggdGhlIHJlYm91bmQgZnJvbSB0aGUgYWJydXB0IGNvbmRpdGlvbiBpbiB0aGUgdGFibGV0NjAgZ3JvdXAuCmBgYHtyfQphYnJ1cHRfUmVib3VuZFR0ZXN0KGdyb3VwID0gJ3RhYmxldDYwJykKYGBgCgoKCkhlcmUgaXMgYSBvbmUtc2FtcGxlIHQtdGVzdCB3aXRoIHRoZSByZWJvdW5kIGZyb20gdGhlIGdyYWR1YWwgY29uZGl0aW9uIGluIHRoZSB0YWJsZXQ2MCBncm91cC4KYGBge3J9CmdyYWR1YWxfUmVib3VuZFR0ZXN0KGdyb3VwID0gJ3RhYmxldDYwJykKYGBg</div>
 
 
 

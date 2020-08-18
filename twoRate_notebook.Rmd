@@ -54,15 +54,22 @@ plotAllData()
 
 This was done only on data from the abrupt condition, with groups (30° digitizing tablet, 60° digitalizing tablet, 30° VR setups) with the blocks (first, second, last training) as our within-subject factors, and order as our between-subject factors. The orange bars here represent the mean reach deviations of the participants who performed the abrupt condition first, and the blue bars represent the mean reach deviations of the participants who performed the gradual condition first. All of the data has been normalized to the size of the rotation.  
 
+
+## Plotting Order Data
 ```{r}
 plotOrderData()
 ```
 
 
+## Statistics on order data
+
+### first block:
+
 Here is the 2x2 ANOVA on the first block of the training phase with setup (tablet30, VR30) and order as our between subjects factors.
 ```{r}
 setup_order_first_ANOVA()
 ```
+
 
 
 Here is the 2x2 ANOVA on the first block of the training phase with rotation (tablet30, tablet60) and order as our between subjects factors.
@@ -71,20 +78,35 @@ rotation_order_first_ANOVA()
 ```
 
 
+
+### second block:
+
 Here is the 2x2 ANOVA on the second block of the training phase with setup (tablet30, VR30) and order as our between subjects factors.
 ```{r}
 setup_order_second_ANOVA()
 ```
+
+
+
+### third block:
 
 Here is the 2x2 ANOVA on the second block of the training phase with rotation (tablet30, tablet60) and order as our between subjects factors.
 ```{r}
 rotation_order_second_ANOVA()
 ```
 
+
+
+### final block:
+
 Here is the 2x2 ANOVA on the last block of the training phase with setup (tablet30, VR30) and order as our between subjects factors.
 ```{r}
 setup_order_last_ANOVA()
 ```
+
+
+
+### final block:
 
 Here is the 2x2 ANOVA on the last block of the training phase with rotation (tablet30, tablet60) and order as our between subjects factors.
 ```{r}
@@ -93,29 +115,49 @@ rotation_order_last_ANOVA()
 
 
 
+
+
+
 # Extent of Learning
 
 Here we are checking if there are any differences in the extent of learning in the abrupt and gradual conditions during the last training and last reversal blocks. The data is shown for the 3 groups (30° digitizing tablet, 60° digitalizing tablet, 30° VR setups). The orange bars here represent the mean reach deviations of the abrupt condition, and the blue bars represent the mean reach deviations of gradual condition. All of the data has been normalized to the size of the rotation. 
 
 
+
+## Plotting Extent of Learning
 ```{r}
 plotExtentofLearning()
 ```
+
+
+
+## Statistics for Extent of Learning
+
+
+### last block of the training phase:
 
 Here is the 2x2 ANOVA on the last block of the training phase with setup (tablet30, VR30) as our between subjects factor and condition (abrupt, gradual) as our within-subjects factor.
 ```{r}
 setupLastTrainingANOVA()
 ```
 
+
+
 Here is the 2x2 ANOVA on the last block of the training phase with rotation size (tablet30, tablet60) as our between subjects factor and condition (abrupt, gradual) as our within-subjects factor. 
 ```{r}
 rotationLastTrainingANOVA()
 ```
 
+
+
+### last block of the reversal phase:
+
 Here is the 2x2 ANOVA on the last block of the reversal phase with setup (tablet30, VR30) as our between subjects factor and condition (abrupt, gradual) as our within-subjects factor.
 ```{r}
 setupLastReversalANOVA()
 ```
+
+
 
 Here is the 2x2 ANOVA on the last block of the reversal phase with rotation size (tablet30, tablet60) as our between subjects factor and condition (abrupt, gradual) as our within-subjects factor. 
 ```{r}
@@ -123,23 +165,32 @@ rotationLastReversalANOVA()
 ```
 
 
+
+
+
 # Rebound
 
 Here we are checking if there are any differences in the rebound between the abrupt and gradual conditions for the 3 groups (30° digitizing tablet, 60° digitalizing tablet, 30° VR setups). The orange bars here represent the mean reach deviations of the abrupt condition, and the blue bars represent the mean reach deviations of gradual condition. All of the data has been normalized to the size of the rotation. 
 
+
+## Plotting Rebound
+
 ```{r}
 plotReboundData()
 ```
+
+
+## Statistics on Rebound
+
+
 
 Here is the 2x2 ANOVA on the rebound with setup (tablet30, VR30) as our between subjects factor and condition (abrupt, gradual) as our within-subjects factor.
 ```{r}
 setupReboundANOVA()
 ```
 
-Here is the 2x2 ANOVA on the rebound with rotation size (tablet30, tablet60) as our between subjects factor and condition (abrupt, gradual) as our within-subjects factor. These rebounds here have not been normalized to the rotation size. 
-```{r}
-rotationReboundANOVA()
-```
+
+### Normalized Data: 
 
 
 Here is the 2x2 ANOVA on the rebound with rotation size (tablet30, tablet60) as our between subjects factor and condition (abrupt, gradual) as our within-subjects factor. These rebounds have been normalized to the rotation size. 
@@ -147,15 +198,35 @@ Here is the 2x2 ANOVA on the rebound with rotation size (tablet30, tablet60) as 
 normalized_rotationReboundANOVA()
 ```
 
+
+
+### Not Normalized Data
+
+Here is the 2x2 ANOVA on the rebound with rotation size (tablet30, tablet60) as our between subjects factor and condition (abrupt, gradual) as our within-subjects factor. These rebounds here have not been normalized to the rotation size. 
+```{r}
+rotationReboundANOVA()
+```
+
+
+
+
+
+### paired t-test for each group:
+
+
 Here is a paired t-test comparing the abrupt and gradual conditions in the tablet30 group.
 ```{r}
 getReboundTtest(group = 'tablet30')
 ```
 
+
+
 Here is a paired t-test comparing the abrupt and gradual conditions in the tablet60 group.
 ```{r}
 getReboundTtest(group = 'tablet60')
 ```
+
+
 
 Here is a paired t-test comparing the abrupt and gradual conditions in the VR30 group.
 ```{r}
@@ -163,3 +234,35 @@ getReboundTtest(group = 'VR30')
 ```
 
 
+
+
+### one-sample t-test for each group for both abrupt and gradual conditions:
+
+
+Here is a one-sample t-test with the rebound from the abrupt condition in the tablet30 group.
+```{r}
+abrupt_ReboundTtest(group = 'tablet30')
+```
+
+
+
+
+Here is a one-sample t-test with the rebound from the gradual condition in the tablet30 group.
+```{r}
+gradual_ReboundTtest(group = 'tablet30')
+```
+
+
+
+
+Here is a one-sample t-test with the rebound from the abrupt condition in the tablet60 group.
+```{r}
+abrupt_ReboundTtest(group = 'tablet60')
+```
+
+
+
+Here is a one-sample t-test with the rebound from the gradual condition in the tablet60 group.
+```{r}
+gradual_ReboundTtest(group = 'tablet60')
+```

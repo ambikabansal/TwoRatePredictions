@@ -66,11 +66,34 @@ getReboundTtest <- function(group) {
   
   df <- read.csv(file = sprintf ('data/processedData/%s_tworates_new.csv', group), stringsAsFactors = FALSE)
   df$participant <- as.factor(df$participant)
-  df$condition <- as.factor(df$condition)
   x <- df$rebound [which(df$condition=='abrupt')]
   y <- df$rebound [which(df$condition=='gradual')]
 
   ttest <- t.test(x,y, paired = TRUE)
+  print(ttest)
+  
+}
+
+
+
+abrupt_ReboundTtest <- function(group) {
+  
+  df <- read.csv(file = sprintf ('data/processedData/%s_tworates_new.csv', group), stringsAsFactors = FALSE)
+  df$participant <- as.factor(df$participant)
+  x <- df$rebound [which(df$condition=='abrupt')]
+
+  ttest <- t.test(x, mu=0, alternative = "greater")
+  print(ttest)
+  
+}
+
+gradual_ReboundTtest <- function(group) {
+  
+  df <- read.csv(file = sprintf ('data/processedData/%s_tworates_new.csv', group), stringsAsFactors = FALSE)
+  df$participant <- as.factor(df$participant)
+  x <- df$rebound [which(df$condition=='gradual')]
+  
+  ttest <- t.test(x, mu=0, alternative = "greater")
   print(ttest)
   
 }
